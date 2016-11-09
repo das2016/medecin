@@ -1,0 +1,47 @@
+<section class="navbar navbar-inverse">
+	<div class="navbar-fixed-top" role="navigation">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" ui-sref="#">RdvMedecins</a>
+		</div>
+
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a ui-sref="home"> <span>Accueil</span>
+				</a></li>
+				<li><a ui-sref="client"> <i class="fa fa-users"></i><span>Client</span>
+				</a></li>
+				<li><a ui-sref="medecin"> <span>Medecin</span>
+				</a></li>
+				<li><a ui-sref="rdv"> <span>Rendez Vous</span>
+				</a></li>
+			</ul>
+
+			<form class="navbar-form navbar-right">
+				<!-- mode debug -->
+				<label style="width: 100px"> <input type="checkbox">
+					<span style="color: white">Debug</span>
+				</label>
+				<button class="btn btn-success">Deconnexion</button>
+				<!-- langues -->
+				<div class="btn-group">
+					<button type="button" class="btn btn-danger">Langues</button>
+					<button type="button" class="btn btn-danger dropdown-toggle"
+						data-toggle="dropdown">
+						<span class="caret"></span> <span class="sr-only">Toggle
+							Dropdown</span>
+					</button>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="">Français</a></li>
+						<li><a href="">English</a></li>
+					</ul>
+				</div>
+			</form>
+		</div>
+	</div>
+</section>

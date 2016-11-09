@@ -1,5 +1,6 @@
 package com.rdvmedecin.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,8 +24,8 @@ public class Creneau extends AbstractEntity {
 	private int hFin;
 	@Column(name = "M_FIN")
 	private int mFin;
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ID_MEDECIN")
+	@ManyToOne(fetch = FetchType.LAZY, cascade={CascadeType.ALL})
+	@JoinColumn(name = "ID_MEDECIN",nullable=true)
 	private Medecin medecin;
 
 	public Creneau() {

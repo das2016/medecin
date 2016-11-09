@@ -1,0 +1,246 @@
+<section class="container">
+		<h1>Rdvmedecins - v1</h1>
+
+
+		<!-- 
+		<div class="box-footer col-lg-10">
+			<button type="submit" class="btn btn-info pull-left"
+				style="margin-left: 0px;" ng-click="openPopupNewClient();">Ajouter
+				Client</button>
+		</div> -->
+
+
+		<div class="row col-md-6">
+			<div class="alert alert-success" id="deleteClientMsg" role="alert"
+				style="display: none;">Le Client a été supprimé avec succès</div>
+			<div class="alert alert-danger" id="deleteClientMsgError"
+				role="alert" style="display: none;">Un problème de suppression
+				a été survenue</div>
+			<div class="col-md-12">
+				<table class="table" id="creneaux">
+					<thead>
+						<tr>
+							<th><span>Titre</span></th>
+							<th><span>Nom</span></th>
+							<th><span>Prenom</span></th>
+							<th><span>Date de Naissance</span></th>
+							<th><span>Action</span></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="c in clients">
+							<td><span>{{c.titre}}</span></td>
+							<td>{{c.nom}}</td>
+							<td>{{c.prenom}}</td>
+							<td>{{c.dateNaissance | date:'dd-MM-yyyy'}}</td>
+							<td>
+
+								<button class="btn btn-primary btn-xs" tooltip="Modifier"
+									tooltip-placement="left" data-title="Upadte"
+									data-toggle="modal" data-target="#Update"
+									ng-click="openPopupUpdateClient(c)">
+									<span class="glyphicon glyphicon-pencil"></span>
+								</button>
+
+								<button class="btn btn-danger btn-xs" tooltip="Supprimer"
+									tooltip-placement="right" data-title="Delete"
+									data-toggle="modal" data-target="#delete"
+									ng-click="openPopupDeletClient(c)">
+									<span class="glyphicon glyphicon-trash"></span>
+								</button>
+
+							</td>
+
+						</tr>
+						<!-- <tr>
+							<td><span class="status-metro status-active">9h00-9h20</span>
+							</td>
+							<td></td>
+							<td><a href="" class="status-metro status-active">Reserver</a>
+							</td>
+						</tr>
+						<tr>
+							<td><span class="status-metro status-suspended">9h20-9h40</span>
+							</td>
+							<td>Mr Bachouche Skander</td>
+							<td><a href="" class="status-metro status-suspended">Supprimer</a></td>
+						</tr> -->
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6" style="margin-left: 2%;">
+				<div class="panel panel-primary">
+					<div class="panel-heading">Nouveau Client</div>
+					<form name="newClientForm">
+						<div class="alert alert-success" id="addClientMsg" role="alert"
+							style="display: none;">Le Client a été ajouté avec succès</div>
+						<div class="modal-body">
+							<div class="form-group">
+								<label for="exampleInputName2">Titre :</label> <input
+									type="text" class="form-control" id="titre" placeholder="Titre"
+									ng-model="client.titre" required="required">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputName2">Nom :</label> <input type="text"
+									class="form-control" id="nom" ng-model="client.nom"
+									placeholder="Nom" required="required">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputName2">Prenom :</label> <input
+									type="text" class="form-control" id="prenom"
+									placeholder="Prenom" ng-model="client.prenom" required="required">
+							</div>
+
+							<!-- 	<div class="form-group">
+								<label for="exampleInputName2">Date de Naissance :</label> <input
+									type="date" class="datepicker" id="date" data-date-format="mm/dd/yyyy"
+									ng-model="client.dateNaissance"> -->
+
+							<p class="input-group">
+								<label for="exampleInputName2">Date de Naissance :</label> <input
+									type="text" class="form-control" datepicker-popup="dd-MM-yyyy"
+									ng-model="client.dateNaissance" is-open="opened" placeholder="Date de Naissance"
+									ng-required="true" close-text="Close" ng-click="open($event)"/> <span
+									class="input-group-btn">
+									<button class="btn btn-default" style="margin-top: 58%" ng-click="open($event)">
+										<i class="glyphicon glyphicon-calendar"></i>
+									</button>
+								</span>
+							</p>
+
+
+
+
+						</div>
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-primary pull-right"
+								id="btnNewClient" ng-click="addNewClient(client)">
+								<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+								Valider
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- Dialog Add Client -->
+		<div class="modal fade" id="addNewClient" role="dialog">
+			<div class="modal-dialog" style="margin-top: 90px;">
+				<div class="modal-content box box-success box-solid">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">X</button>
+						<h3 class="box-title">Ajouter un nouveau client</h3>
+					</div>
+					<form name="registrForm">
+						<div class="modal-body">
+							<div class="form-group">
+								<label for="exampleInputName2">Titre :</label> <input
+									type="text" class="form-control" id="titre" placeholder="Titre"
+									ng-model="client.titre">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputName2">Nom :</label> <input type="text"
+									class="form-control" id="nom" ng-model="client.nom"
+									placeholder="Nom">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputName2">Prenom :</label> <input
+									type="text" class="form-control" id="prenom"
+									placeholder="Prenom" ng-model="client.prenom">
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-info pull-right"
+								id="btnNewClient" ng-click="addNewClient(client)">Ajouter</button>
+						</div>
+					</form>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+
+
+
+		<!-- Dialog Update Client -->
+		<div class="modal fade" id="updateClient" role="dialog">
+			<div class="modal-dialog" style="margin-top: 90px;">
+				<div class="modal-content box box-success box-solid">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">X</button>
+						<h3 class="box-title">
+							Modifier client <span ng-bind="header"></span>
+						</h3>
+					</div>
+					<form name="registrForm">
+						<div class="modal-body">
+							<div class="form-group">
+								<label for="exampleInputName2">Titre :</label> <input
+									readonly="readonly" type="text" class="form-control" id="titre"
+									placeholder="Titre" value="{{selectedClient.titre}}"
+									ng-model="selectedClient.titre">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputName2">Nom :</label> <input type="text"
+									class="form-control" id="nom" value="{{selectedClient.nom}}"
+									ng-model="selectedClient.nom" placeholder="Nom">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputName2">Prenom :</label> <input
+									type="text" class="form-control" id="prenom"
+									placeholder="Prenom" value="{{selectedClient.prenom}}"
+									ng-model="selectedClient.prenom">
+							</div>
+							<p class="input-group">
+								<label for="exampleInputName2">Date de Naissance :</label> <input
+									type="text" class="form-control" datepicker-popup="dd-MM-yyyy"
+									ng-model="selectedClient.dateNaissance" value="{{selectedClient.dateNaissance}}" is-open="opened" placeholder="Date de Naissance"
+									ng-required="true" close-text="Close" ng-click="open($event)"/> <span
+									class="input-group-btn">
+									<button class="btn btn-default" style="margin-top: 58%" ng-click="open($event)">
+										<i class="glyphicon glyphicon-calendar"></i>
+									</button>
+								</span>
+							</p>
+						</div>
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-primary btn-ok"
+								id="btnNewClient" ng-click="updateClient(selectedClient)">Modifier</button>
+							<button type="button" class="btn" data-dismiss="modal">Annuler</button>
+						</div>
+					</form>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+
+		<!-- delete dilog -->
+		<div class="modal fade" id="deleteClient" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true"
+			style="margin-top: 90px;">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="box-title">Confirmation</h4>
+					</div>
+					<div class="modal-body">
+						<h4 class="box-title">Voulez vous supprimer le client
+							{{selectedClient.prenom}} {{selectedClient.nom}} ?</h4>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary btn-ok"
+							ng-click='deleteClient(selectedClient)'>Supprimer</button>
+						<button type="button" class="btn" data-dismiss="modal">Annuler</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+</section>

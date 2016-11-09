@@ -105,8 +105,8 @@ public class Static {
 		}
 		Map<String, Object> hash = new HashMap<String, Object>();
 		hash.put("id", rv.getId());
-		hash.put("idClient", Long.valueOf(rv.getIdClient()));
-		hash.put("idCreneau", Long.valueOf(rv.getIdCreneau()));
+//		hash.put("idClient", Long.valueOf(rv.getIdClient()));
+//		hash.put("idCreneau", Long.valueOf(rv.getIdCreneau()));
 		return hash;
 	}
 }

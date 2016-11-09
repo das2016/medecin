@@ -2,6 +2,7 @@ package com.rdvmedecin.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,15 +24,15 @@ public class Rv extends AbstractEntity {
 	@Temporal(TemporalType.DATE)
 	private Date jour;
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ID_CLIENT")
+	@JoinColumn(name = "ID_CLIENT", nullable=true)
 	private Client client;
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ID_CRENEAU")
+	@JoinColumn(name = "ID_CRENEAU",nullable=true)
 	private Creneau creneau;
-	@Column(name = "ID_CLIENT", insertable = false, updatable = false)
-	private long idClient;
-	@Column(name = "ID_CRENEAU", insertable = false, updatable = false)
-	private long idCreneau;
+//	@Column(name = "ID_CLIENT", insertable = false)
+//	private long idClient;
+//	@Column(name = "ID_CRENEAU", insertable = false)
+//	private long idCreneau;
 
 	public Rv() {
 	}
@@ -66,19 +67,19 @@ public class Rv extends AbstractEntity {
 		this.creneau = creneau;
 	}
 
-	public long getIdClient() {
-		return this.idClient;
-	}
-
-	public void setIdClient(long idClient) {
-		this.idClient = idClient;
-	}
-
-	public long getIdCreneau() {
-		return this.idCreneau;
-	}
-
-	public void setIdCreneau(long idCreneau) {
-		this.idCreneau = idCreneau;
-	}
+//	public long getIdClient() {
+//		return this.idClient;
+//	}
+//
+//	public void setIdClient(long idClient) {
+//		this.idClient = idClient;
+//	}
+//
+//	public long getIdCreneau() {
+//		return this.idCreneau;
+//	}
+//
+//	public void setIdCreneau(long idCreneau) {
+//		this.idCreneau = idCreneau;
+//	}
 }

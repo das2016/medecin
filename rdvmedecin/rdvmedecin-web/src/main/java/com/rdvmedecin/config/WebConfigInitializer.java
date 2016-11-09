@@ -19,7 +19,7 @@ public class WebConfigInitializer implements WebApplicationInitializer {
 		AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
 		ctx.register(new Class[] { WebConfigContext.class });
 		ctx.setServletContext(container);
-		ServletRegistration.Dynamic servlet = container.addServlet("rdvmedecin-web", new DispatcherServlet(ctx));
+		ServletRegistration.Dynamic servlet = container.addServlet("rdvmedecin", new DispatcherServlet(ctx));
 		servlet.setLoadOnStartup(1);
 		servlet.addMapping(new String[] { "/" });
 	}
