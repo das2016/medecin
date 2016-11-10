@@ -7,20 +7,21 @@
 <meta name="description" content="Angular client for RdvMedecins">
 <meta name="author" content="SKAN">
 <!-- le CSS -->
-<link href="bower_components/bootstrap/dist/css/bootstrap.min.css"
+<link href="static/bower_components/bootstrap/dist/css/bootstrap.min.css"
 	rel="stylesheet" />
-<link
-	href="static/bower_components/bootstrap/dist/css/bootstrap-theme.min.css"
+<link href="static/bower_components/bootstrap/dist/css/bootstrap-theme.min.css"
 	rel="stylesheet" />
-<link
-	href="static/bower_components/bootstrap-select/bootstrap-select.min.css"
+<link href="static/bower_components/bootstrap-select/bootstrap-select.min.css"
 	rel="stylesheet" />
-<link href="/static/bower_components/footable/css/footable.core.min.css"
+<link href="static/bower_components/footable/css/footable.core.min.css"
 	rel="stylesheet" />
 <link href="static/assets/css/rdvmedecins.css" rel="stylesheet" />
 </head>
 <body>
-	<div class="container" ui-view>test</div>
+<div ng-include="'static/views/template/menu.html'"></div>
+	<div class="container" ui-view>
+	test
+	</div> 
 	<!-- Bootstrap core JavaScript ================================================== -->
 	<script type="text/javascript"
 		src="static/bower_components/jquery/dist/jquery.min.js"></script>
@@ -35,10 +36,9 @@
 		src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
 	<script
 		src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script> -->
-	<script src="http://code.angularjs.org/1.2.13/angular.js"></script>
-	<script
-		src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
-
+		    <script src="http://code.angularjs.org/1.2.13/angular.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+    
 	<script type="text/javascript"
 		src="static/bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.min.js"></script>
 
@@ -49,13 +49,12 @@
 	<script src="static/app/app.js"></script>
 	<script src="static/app/constants.js"></script>
 	<!-- Service -->
-	<script type="text/javascript"
-		src="static/app/service/clientService.js"></script>
+	<script  src="static/app/service/clientService.js"></script>
+	<script  src="static/app/service/medecinService.js"></script>
 	<!-- Controller -->
-	<script type="text/javascript"
-		src="static/app/controller/testController.js"></script>
-	<script type="text/javascript"
-		src="static/app/controller/clientController.js"></script>
+	<script  src="static/app/controller/testController.js"></script>
+	<script  src="static/app/controller/clientController.js"></script>
+	<script  src="static/app/controller/medecinController.js"></script>
 
 </body>
 </html>

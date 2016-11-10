@@ -5,11 +5,7 @@ App.config(
 		function($stateProvider, $urlRouterProvider, $locationProvider,
 				$httpProvider) {
 			 $urlRouterProvider.otherwise('/');
-			$stateProvider.state('main', {
-//				abstract : true,
-				url : '/main',
-				templateUrl : 'static/views/main.html'
-			}).state('home', {
+			$stateProvider.state('home', {
 				url : '/home',
 				templateUrl : 'static/views/home.html'
 //				parent : 'main'
@@ -21,6 +17,6 @@ App.config(
 			}).state('medecin', {
 				url : '/medecin',
 				templateUrl : 'static/views/secure/medecin.html',
-				controller : 'testController'
+				controller : 'medecinController'
 			});
 		});

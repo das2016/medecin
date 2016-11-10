@@ -1,3 +1,4 @@
+com\rdvmedecin\controller\MedecinController.class
 com\rdvmedecin\web\model\PostSupprimerRv.class
 com\rdvmedecin\config\CORSFilter.class
 com\rdvmedecin\config\WebConfig.class

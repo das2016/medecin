@@ -11,11 +11,11 @@
 
 
 		<div class="row col-md-6">
-			<div class="alert alert-success" id="deleteClientMsg" role="alert"
+			<!-- <div class="alert alert-success" id="deleteClientMsg" role="alert"
 				style="display: none;">Le Client a été supprimé avec succès</div>
 			<div class="alert alert-danger" id="deleteClientMsgError"
 				role="alert" style="display: none;">Un problème de suppression
-				a été survenue</div>
+				a été survenue</div> -->
 			<div class="col-md-12">
 				<table class="table" id="creneaux">
 					<thead>
@@ -23,18 +23,18 @@
 							<th><span>Titre</span></th>
 							<th><span>Nom</span></th>
 							<th><span>Prenom</span></th>
-							<th><span>Date de Naissance</span></th>
+							<!-- <th><span>Date de Naissance</span></th> -->
 							<th><span>Action</span></th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr ng-repeat="c in clients">
+						<tr ng-repeat="m in medecins">
 							<td><span>{{c.titre}}</span></td>
 							<td>{{c.nom}}</td>
 							<td>{{c.prenom}}</td>
-							<td>{{c.dateNaissance | date:'dd-MM-yyyy'}}</td>
+							<!-- <td>{{c.dateNaissance | date:'dd-MM-yyyy'}}</td> -->
 							<td>
-
+<!-- 
 								<button class="btn btn-primary btn-xs" tooltip="Modifier"
 									tooltip-placement="left" data-title="Upadte"
 									data-toggle="modal" data-target="#Update"
@@ -47,31 +47,18 @@
 									data-toggle="modal" data-target="#delete"
 									ng-click="openPopupDeletClient(c)">
 									<span class="glyphicon glyphicon-trash"></span>
-								</button>
+								</button> -->
 
 							</td>
 
 						</tr>
-						<!-- <tr>
-							<td><span class="status-metro status-active">9h00-9h20</span>
-							</td>
-							<td></td>
-							<td><a href="" class="status-metro status-active">Reserver</a>
-							</td>
-						</tr>
-						<tr>
-							<td><span class="status-metro status-suspended">9h20-9h40</span>
-							</td>
-							<td>Mr Bachouche Skander</td>
-							<td><a href="" class="status-metro status-suspended">Supprimer</a></td>
-						</tr> -->
 
 					</tbody>
 				</table>
 			</div>
 		</div>
 
-		<div class="row">
+		<!-- <div class="row">
 			<div class="col-md-6" style="margin-left: 2%;">
 				<div class="panel panel-primary">
 					<div class="panel-heading">Nouveau Client</div>
@@ -95,10 +82,10 @@
 									placeholder="Prenom" ng-model="client.prenom" required="required">
 							</div>
 
-							<!-- 	<div class="form-group">
+								<div class="form-group">
 								<label for="exampleInputName2">Date de Naissance :</label> <input
 									type="date" class="datepicker" id="date" data-date-format="mm/dd/yyyy"
-									ng-model="client.dateNaissance"> -->
+									ng-model="client.dateNaissance">
 
 							<p class="input-group">
 								<label for="exampleInputName2">Date de Naissance :</label> <input
@@ -127,7 +114,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- Dialog Add Client -->
+		Dialog Add Client
 		<div class="modal fade" id="addNewClient" role="dialog">
 			<div class="modal-dialog" style="margin-top: 90px;">
 				<div class="modal-content box box-success box-solid">
@@ -160,14 +147,14 @@
 						</div>
 					</form>
 				</div>
-				<!-- /.modal-content -->
+				/.modal-content
 			</div>
-			<!-- /.modal-dialog -->
+			/.modal-dialog
 		</div>
 
 
 
-		<!-- Dialog Update Client -->
+		Dialog Update Client
 		<div class="modal fade" id="updateClient" role="dialog">
 			<div class="modal-dialog" style="margin-top: 90px;">
 				<div class="modal-content box box-success box-solid">
@@ -216,12 +203,12 @@
 						</div>
 					</form>
 				</div>
-				<!-- /.modal-content -->
+				/.modal-content
 			</div>
-			<!-- /.modal-dialog -->
+			/.modal-dialog
 		</div>
 
-		<!-- delete dilog -->
+		delete dilog
 		<div class="modal fade" id="deleteClient" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel" aria-hidden="true"
 			style="margin-top: 90px;">
@@ -240,7 +227,7 @@
 						<button type="button" class="btn" data-dismiss="modal">Annuler</button>
 					</div>
 				</div>
-			</div>
-		</div>
+			</div> 
+		</div>-->
 
 </section>
