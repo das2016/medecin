@@ -11,6 +11,10 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 /**
  * 
  * @author SKAN
@@ -18,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class CORSFilter implements Filter  {
  
+	private static final Logger LOGGER = LoggerFactory.getLogger(CORSFilter.class);
 	/**
 	 * 
 	 * @param req
@@ -27,7 +32,7 @@ public class CORSFilter implements Filter  {
 	 * @throws ServletException
 	 */
    public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
-        System.out.println("Filtering on...........................................................");
+	    LOGGER.info("Filtering on...........................................................");
         HttpServletResponse response = (HttpServletResponse) res;
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS, DELETE");

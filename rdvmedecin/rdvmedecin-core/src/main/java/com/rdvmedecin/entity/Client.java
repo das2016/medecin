@@ -16,7 +16,6 @@ import javax.persistence.Table;
 public class Client extends Personne {
 	
 	private static final long serialVersionUID = 1L;
-
 	@Column(name = "DATE_NAISSANCE")
 	private Date dateNaissance;
 

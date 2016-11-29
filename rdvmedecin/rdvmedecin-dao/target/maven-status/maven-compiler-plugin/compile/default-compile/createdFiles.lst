@@ -1,0 +1,11 @@
+com\rdvmedecin\dao\MedecinDao.class
+com\rdvmedecin\springdatajpa\SpringDataCreneauDao.class
+com\rdvmedecin\springdatajpa\SpringDataRvDao.class
+com\rdvmedecin\dao\RvDao.class
+com\rdvmedecin\springdatajpa\SpringDataMedecinDao.class
+com\rdvmedecin\dao\CreneauDao.class
+com\rdvmedecin\dao\DaoBaseMethod.class
+com\rdvmedecin\dao\ClientDao.class
+com\rdvmedecin\config\DataBaseConfig.class
+com\rdvmedecin\config\DaoConfig.class
+com\rdvmedecin\springdatajpa\SpringDataClientDao.class

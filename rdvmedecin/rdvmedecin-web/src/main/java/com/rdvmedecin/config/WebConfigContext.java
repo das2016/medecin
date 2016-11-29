@@ -9,8 +9,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
  * @author SKAN
  * 
  */
-public class WebConfigContext extends
-		AbstractAnnotationConfigDispatcherServletInitializer {
+public class WebConfigContext extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {

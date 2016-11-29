@@ -14,6 +14,7 @@ import javax.persistence.Version;
  */
 @MappedSuperclass
 public class AbstractEntity implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,33 +22,59 @@ public class AbstractEntity implements Serializable {
 	@Version
 	private Long version;
 
+	/*
+	 * Constructor
+	 */
+	
+	/**
+	 * 
+	 */
 	public AbstractEntity() {
+		super();
 	}
-
+	
+	/**
+	 * @param id
+	 * @param version
+	 */
 	public AbstractEntity(Long id, Long version) {
+		super();
 		this.id = id;
 		this.version = version;
 	}
+	
 
-	public AbstractEntity build(Long id, Long version) {
-		this.id = id;
-		this.version = version;
-		return this;
-	}
+	/*
+	 * Getter and setter
+	 */
+	
 
+	/**
+	 * @return the id
+	 */
 	public Long getId() {
-		return this.id;
+		return id;
 	}
 
+	/**
+	 * @param id the id to set
+	 */
 	public void setId(Long id) {
 		this.id = id;
 	}
 
+	/**
+	 * @return the version
+	 */
 	public Long getVersion() {
-		return this.version;
+		return version;
 	}
 
+	/**
+	 * @param version the version to set
+	 */
 	public void setVersion(Long version) {
 		this.version = version;
 	}
+
 }

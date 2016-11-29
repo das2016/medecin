@@ -14,9 +14,14 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @Import({ CoreConfig.class })
 public class DataBaseConfig {
+	
 	@Autowired
 	Environment environment;
 
+	/**
+	 * Datasource Bean Config
+	 * @return
+	 */
 	@Bean
 	public DataSource dataSource() {
 		BasicDataSource dataSource = new BasicDataSource();

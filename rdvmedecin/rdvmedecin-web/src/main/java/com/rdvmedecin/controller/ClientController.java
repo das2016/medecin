@@ -26,8 +26,8 @@ import com.rdvmedecin.service.ClientService;
 @RestController
 public class ClientController {
 
-	private static final Logger LOGGER = LoggerFactory
-			.getLogger(ClientController.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(ClientController.class);
+
 	@Autowired
 	private ClientService clientService;
 
@@ -52,8 +52,7 @@ public class ClientController {
 	 * @throws Exception
 	 */
 	@RequestMapping(value = "/addClient", method = RequestMethod.POST)
-	public @ResponseBody
-	void addClient(@RequestBody Client client) throws Exception {
+	public @ResponseBody void addClient(@RequestBody Client client) throws Exception {
 		if (client != null) {
 			clientService.addClient(client);
 		} else {
@@ -78,23 +77,27 @@ public class ClientController {
 			throw new Exception("Cannot delete a null client");
 		}
 	}
-	
+
 	/**
 	 * Update Client
+	 * 
 	 * @param client
 	 * @throws Exception
 	 */
-	@RequestMapping(value="/updateClient",method = RequestMethod.PUT)
-	public @ResponseBody void updateClient(@RequestBody Client client) throws Exception{
+	@RequestMapping(value = "/updateClient", method = RequestMethod.PUT)
+	public @ResponseBody void updateClient(@RequestBody Client client) throws Exception {
 		if (client != null) {
 			/*
-			 *  we are used saveOrUpdate method in the addClient method service 
+			 * we used saveOrUpdate method in the addClient method service
 			 */
-			LOGGER.info("Update Client ::::::::::::::::::> "+client.getId());
+			LOGGER.info("Update Client ::::::::::::::::::> " + client.getId());
 			clientService.addClient(client);
 		} else {
 			LOGGER.error("Cannot update a null client");
 			throw new Exception("Cannot update a null Client");
 		}
+	}
+	
+	public void test(){
 	}
 }

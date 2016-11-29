@@ -27,12 +27,18 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 @Import({ DataBaseConfig.class })
 @EnableJpaRepositories({ "com.rdvmedecin.springdatajpa" })
 public class DaoConfig {
+	
+	public static final String Entiy_PACKAGE_SCAN = "com.rdvmedecin.entity";
+	
 	@Autowired
 	DataSource dataSource;
 	@Autowired
 	Environment environment;
-	public static final String PACKAGE_SCAN = "com.rdvmedecin.entity";
 
+	/**
+	 * EntityManagerFactory Bean config
+	 * @return
+	 */
 	@Bean
 	public EntityManagerFactory entityManagerFactory() {
 		JpaVendorAdapter jpaVendorAdapter = new HibernateJpaVendorAdapter();
@@ -41,12 +47,16 @@ public class DaoConfig {
 		entityManagerFactoryBean.setJpaDialect(new HibernateJpaDialect());
 		entityManagerFactoryBean.setDataSource(this.dataSource);
 		entityManagerFactoryBean
-				.setPackagesToScan(new String[] { "com.rdvmedecin.entity" });
+				.setPackagesToScan(new String[] { Entiy_PACKAGE_SCAN });
 		entityManagerFactoryBean.setJpaVendorAdapter(jpaVendorAdapter);
 		entityManagerFactoryBean.afterPropertiesSet();
 		return entityManagerFactoryBean.getObject();
 	}
 
+	/**
+	 * JpaTRansactionManager Config
+	 * @return
+	 */
 	@Bean
 	public JpaTransactionManager transactionManager() {
 		JpaTransactionManager transactionManager = new JpaTransactionManager();
