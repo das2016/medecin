@@ -1,23 +1,15 @@
 <section class="container">
-		<h1>Rdvmedecins - v1</h1>
 
-
-		<!-- 
-		<div class="box-footer col-lg-10">
-			<button type="submit" class="btn btn-info pull-left"
-				style="margin-left: 0px;" ng-click="openPopupNewClient();">Ajouter
-				Client</button>
-		</div> -->
-
-
+		<h1>Patient</h1>
 		<div class="row col-md-6">
-			<div class="alert alert-success" id="deleteClientMsg" role="alert"
-				style="display: none;">Le Client a été supprimé avec succès</div>
-			<div class="alert alert-danger" id="deleteClientMsgError"
-				role="alert" style="display: none;">Un problème de suppression
-				a été survenue</div>
+			<div class="alert alert-success" id="deleteClientMsg" role="alert" style="display: none;">Le Patient a été supprimé avec succès</div>
+			<div class="alert alert-danger" id="deleteClientMsgError" role="alert" style="display: none;">Un problème de suppression a été survenue</div>
+			<div class="alert alert-success" id="updateClientMsg" role="alert" style="display: none;">Le Patient a été modifié avec succès</div>
+			<div class="alert alert-danger" id="updateClientMsgError" role="alert" style="display: none;">Un problème de modification a été survenue</div>
+			
+	        <!--Table ded patients  -->
 			<div class="col-md-12">
-				<table class="table" id="creneaux">
+				<table class="table">
 					<thead>
 						<tr>
 							<th><span>Titre</span></th>
@@ -34,88 +26,57 @@
 							<td>{{c.prenom}}</td>
 							<td>{{c.dateNaissance | date:'dd-MM-yyyy'}}</td>
 							<td>
-
-								<button class="btn btn-primary btn-xs" tooltip="Modifier"
-									tooltip-placement="left" data-title="Upadte"
-									data-toggle="modal" data-target="#Update"
-									ng-click="openPopupUpdateClient(c)">
+								<button class="btn btn-primary btn-xs" tooltip="Modifier" tooltip-placement="left" data-title="Upadte" data-toggle="modal" data-target="#Update" 
+								ng-click="openPopupUpdateClient(c)">
 									<span class="glyphicon glyphicon-pencil"></span>
 								</button>
-
-								<button class="btn btn-danger btn-xs" tooltip="Supprimer"
-									tooltip-placement="right" data-title="Delete"
-									data-toggle="modal" data-target="#delete"
+								<button class="btn btn-danger btn-xs" tooltip="Supprimer" tooltip-placement="right" data-title="Delete" data-toggle="modal" data-target="#delete"
 									ng-click="openPopupDeletClient(c)">
 									<span class="glyphicon glyphicon-trash"></span>
 								</button>
-
-							</td>
-
-						</tr>
-						<!-- <tr>
-							<td><span class="status-metro status-active">9h00-9h20</span>
-							</td>
-							<td></td>
-							<td><a href="" class="status-metro status-active">Reserver</a>
 							</td>
 						</tr>
-						<tr>
-							<td><span class="status-metro status-suspended">9h20-9h40</span>
-							</td>
-							<td>Mr Bachouche Skander</td>
-							<td><a href="" class="status-metro status-suspended">Supprimer</a></td>
-						</tr> -->
-
 					</tbody>
 				</table>
 			</div>
 		</div>
 
+        <!-- Add new Patient Form -->
 		<div class="row">
 			<div class="col-md-6" style="margin-left: 2%;">
 				<div class="panel panel-primary">
-					<div class="panel-heading">Nouveau Client</div>
+					<div class="panel-heading">Nouveau Patient</div>
 					<form name="newClientForm">
-						<div class="alert alert-success" id="addClientMsg" role="alert"
-							style="display: none;">Le Client a été ajouté avec succès</div>
+						<div class="alert alert-success" id="addClientMsg" role="alert" style="display: none;">Le Patient a été ajouté avec succès</div>
 						<div class="modal-body">
+						
 							<div class="form-group">
-								<label for="exampleInputName2">Titre :</label> <input
-									type="text" class="form-control" id="titre" placeholder="Titre"
-									ng-model="client.titre" required="required">
+								<label for="exampleInputName2">Titre :</label> 
+								<input type="text" class="form-control" id="titre" placeholder="Titre" ng-model="client.titre" required="required">
 							</div>
+							
 							<div class="form-group">
-								<label for="exampleInputName2">Nom :</label> <input type="text"
-									class="form-control" id="nom" ng-model="client.nom"
-									placeholder="Nom" required="required">
+								<label for="exampleInputName2">Nom :</label> 
+								<input type="text" class="form-control" id="nom" ng-model="client.nom" placeholder="Nom" required="required">
 							</div>
+							
 							<div class="form-group">
-								<label for="exampleInputName2">Prenom :</label> <input
-									type="text" class="form-control" id="prenom"
-									placeholder="Prenom" ng-model="client.prenom" required="required">
+								<label for="exampleInputName2">Prenom :</label>
+								 <input type="text" class="form-control" id="prenom" placeholder="Prenom" ng-model="client.prenom" required="required">
 							</div>
-
-							<!-- 	<div class="form-group">
-								<label for="exampleInputName2">Date de Naissance :</label> <input
-									type="date" class="datepicker" id="date" data-date-format="mm/dd/yyyy"
-									ng-model="client.dateNaissance"> -->
 
 							<p class="input-group">
-								<label for="exampleInputName2">Date de Naissance :</label> <input
-									type="text" class="form-control" datepicker-popup="dd-MM-yyyy"
-									ng-model="client.dateNaissance" is-open="opened" placeholder="Date de Naissance"
-									ng-required="true" close-text="Close" ng-click="open($event)"/> <span
-									class="input-group-btn">
-									<button class="btn btn-default" style="margin-top: 58%" ng-click="open($event)">
+								<label for="exampleInputName2">Date de Naissance :</label> 
+								<input type="text" class="form-control" datepicker-popup="dd-MM-yyyy" ng-model="client.dateNaissance" 
+								is-open="addCalendarOpened" placeholder="Date de Naissance" ng-required="true" close-text="Close" ng-click="openCalendar($event,'addForm')"/>
+								 <span class="input-group-btn">
+									<button class="btn btn-default" style="margin-top: 58%" ng-click="openCalendarForAdd($event,'addForm')">
 										<i class="glyphicon glyphicon-calendar"></i>
 									</button>
 								</span>
 							</p>
-
-
-
-
 						</div>
+						
 						<div class="modal-footer">
 							<button type="submit" class="btn btn-primary pull-right"
 								id="btnNewClient" ng-click="addNewClient(client)">
@@ -127,6 +88,7 @@
 				</div>
 			</div>
 		</div>
+		
 		<!-- Dialog Add Client -->
 		<div class="modal fade" id="addNewClient" role="dialog">
 			<div class="modal-dialog" style="margin-top: 90px;">
@@ -134,7 +96,7 @@
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal"
 							aria-hidden="true">X</button>
-						<h3 class="box-title">Ajouter un nouveau client</h3>
+						<h3 class="box-title">Ajouter un nouveau patient</h3>
 					</div>
 					<form name="registrForm">
 						<div class="modal-body">
@@ -175,7 +137,7 @@
 						<button type="button" class="close" data-dismiss="modal"
 							aria-hidden="true">X</button>
 						<h3 class="box-title">
-							Modifier client <span ng-bind="header"></span>
+							Modifier le patient <span ng-bind="header"></span>
 						</h3>
 					</div>
 					<form name="registrForm">
@@ -200,10 +162,10 @@
 							<p class="input-group">
 								<label for="exampleInputName2">Date de Naissance :</label> <input
 									type="text" class="form-control" datepicker-popup="dd-MM-yyyy"
-									ng-model="selectedClient.dateNaissance" value="{{selectedClient.dateNaissance}}" is-open="opened" placeholder="Date de Naissance"
-									ng-required="true" close-text="Close" ng-click="open($event)"/> <span
+									ng-model="selectedClient.dateNaissance" value="{{selectedClient.dateNaissance}}" is-open="updateCalendarOpened" placeholder="Date de Naissance"
+									ng-required="true" close-text="Close" ng-click="openCalendar($event,'updateForm')"/> <span
 									class="input-group-btn">
-									<button class="btn btn-default" style="margin-top: 58%" ng-click="open($event)">
+									<button class="btn btn-default" style="margin-top: 58%" ng-click="openCalendar($event,'updateForm')">
 										<i class="glyphicon glyphicon-calendar"></i>
 									</button>
 								</span>
@@ -231,7 +193,7 @@
 						<h4 class="box-title">Confirmation</h4>
 					</div>
 					<div class="modal-body">
-						<h4 class="box-title">Voulez vous supprimer le client
+						<h4 class="box-title">Voulez vous supprimer le patient
 							{{selectedClient.prenom}} {{selectedClient.nom}} ?</h4>
 					</div>
 					<div class="modal-footer">

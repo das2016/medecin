@@ -38,6 +38,11 @@
 				<artifactId>rdvmedecin-web</artifactId>
 				<version>${rv-medecin-version}</version>
 			</dependency>
+					<dependency>
+				<groupId>com.rdvmedecin</groupId>
+				<artifactId>rdvmedecin-web-liferay</artifactId>
+				<version>${rv-medecin-version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<dependencies>
@@ -167,5 +172,6 @@
 		<module>rdvmedecin-dao</module>
 		<module>rdvmedecin-service</module>
 		<module>rdvmedecin-web</module>
+		<module>rdvmedecin-web-liferay</module>
 	</modules>
 </project>

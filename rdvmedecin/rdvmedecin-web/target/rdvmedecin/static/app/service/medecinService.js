@@ -19,7 +19,7 @@ App.factory('medecinService', [ '$http', '$q', 'MEDECIN_URL',
 			 */
 			function getAllMedecin() {
 				var deferred = $q.defer();
-				$http.get(MEDECIN_URL+'/medecins').then(function(response) {
+				$http.get(MEDECIN_URL+'medecins').then(function(response) {
 					deferred.resolve(response.data);
 				}, function(errResponse) {
 					console.error('Error while fetching Medecins');
@@ -33,7 +33,7 @@ App.factory('medecinService', [ '$http', '$q', 'MEDECIN_URL',
 			 */
 			function addMedecin(medecin) {
 				var deferred = $q.defer();
-				$http.post(MEDECIN_URL+'/addMedecin', medecin).then(function(response) {
+				$http.post(MEDECIN_URL+'addMedecin', medecin).then(function(response) {
 					deferred.resolve(response.data);
 				}, function(errResponse) {
 					console.error("Error while adding medecin");
@@ -46,8 +46,8 @@ App.factory('medecinService', [ '$http', '$q', 'MEDECIN_URL',
 			 * Update medecin
 			 */
 			function updateMedecin(medecin) {
-				var deferred = $q.defere();
-				$http.put(MEDECIN_URL+'/updateMedecin', medecin).then(function(response) {
+				var deferred = $q.defer();
+				$http.put(MEDECIN_URL+'updateMedecin', medecin).then(function(response) {
 					deferred.resolve(response.data);
 				}, function(errResponse) {
 					console.log("Error while updating medecin");
@@ -61,7 +61,7 @@ App.factory('medecinService', [ '$http', '$q', 'MEDECIN_URL',
 			 */
 			function deleteMedecin(medecin) {
 				var deferred = $q.defer();
-				$http.delete(MEDECIN_URL+'/deleteMedecin/'+medecin.id).then(function(response) {
+				$http.delete(MEDECIN_URL+'deleteMedecin/'+medecin.id).then(function(response) {
 					deferred.resolve(response.data);
 				}, function(errResponse) {
 					console.log('Error while deleteing Medecin');

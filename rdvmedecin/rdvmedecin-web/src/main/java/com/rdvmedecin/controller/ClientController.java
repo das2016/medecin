@@ -52,12 +52,15 @@ public class ClientController {
 	 * @throws Exception
 	 */
 	@RequestMapping(value = "/addClient", method = RequestMethod.POST)
-	public @ResponseBody void addClient(@RequestBody Client client) throws Exception {
-		if (client != null) {
-			clientService.addClient(client);
-		} else {
-			LOGGER.error("Cannot add a null client");
-			throw new Exception("Cannot add a null Client");
+	public @ResponseBody void addClient(@RequestBody Client client) {
+		try {
+			if (client != null) {
+				clientService.addClient(client);
+			} else {
+				throw new Exception("Cannot add a null Client");
+			}
+		} catch (Exception e) {
+			LOGGER.error(" " + e.getMessage());
 		}
 	}
 
@@ -97,7 +100,5 @@ public class ClientController {
 			throw new Exception("Cannot update a null Client");
 		}
 	}
-	
-	public void test(){
-	}
+
 }

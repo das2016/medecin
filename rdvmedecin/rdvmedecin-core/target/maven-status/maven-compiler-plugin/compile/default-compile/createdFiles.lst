@@ -5,6 +5,6 @@ com\rdvmedecin\model\AgendaMedecinJour.class
 com\rdvmedecin\config\CoreConfig.class
 com\rdvmedecin\entity\Creneau.class
 com\rdvmedecin\model\CreneauMedecinJour.class
-com\rdvmedecin\entity\Personne.class
 com\rdvmedecin\model\Response.class
+com\rdvmedecin\entity\Personne.class
 com\rdvmedecin\entity\AbstractEntity.class

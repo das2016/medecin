@@ -1,40 +1,43 @@
 <section class="container">
 		<h1>Medecin</h1>
 		<div class="row col-md-6">
-<!-- 			 <div class="alert alert-success" id="deleteMedecintMsg" role="alert" style="display: none;">Le Medecin a été supprimé avec succès</div>
-			<div class="alert alert-danger" id="deleteMedecinMsgError" role="alert" style="display: none;">Un problème de suppression a été survenue</div> -->
+		     <div class="alert alert-success" id="deleteMedecintMsg" role="alert" style="display: none;">Le Medecin a été supprimé avec succès</div>
+			 <div class="alert alert-danger" id="deleteMedecinMsgError" role="alert" style="display: none;">Un problème de suppression a été survenue</div>
 			 <div class="alert alert-success" id="updateMedecintMsg" role="alert" style="display: none;">Le Medecin a été modifié avec succèes</div>
+			 <div class="alert alert-success" id="updateMedecintMsgError" role="alert" style="display: none;">Un problème de modification a été survenue</div>
 			
 			<!-- Medecin List  -->
 			<div class="col-md-12">
 				<table class="table" id="creneaux">
 					<thead>
 						<tr>
-							<th><span>Titre</span></th>
 							<th><span>Nom</span></th>
 							<th><span>Prenom</span></th>
+							<th><span>Tel</span></th>
+							<th><span>Adresse cabinet</span></th>
 							<th><span>Action</span></th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr ng-repeat="m in medecins">
-							<td><span>{{m.titre}}</span></td>
 							<td>{{m.nom}}</td>
 							<td>{{m.prenom}}</td>
+							<td><span>{{m.numTel}}</span></td>
+							<td><span>{{m.adresse}}</span></td>
 							<td>
 								<button class="btn btn-primary btn-xs" tooltip="Modifier"
 									tooltip-placement="left" data-title="Upadte"
-									data-toggle="modal" data-target="#Update"
+									data-toggle="modal" data-target="#update"
 									ng-click="openPopupUpdateMedecin(m)">
 									<span class="glyphicon glyphicon-pencil"></span>
 								</button>
-<!--
+
 								<button class="btn btn-danger btn-xs" tooltip="Supprimer"
 									tooltip-placement="right" data-title="Delete"
 									data-toggle="modal" data-target="#delete"
-									ng-click="openPopupDeletClient(c)">
+									ng-click="openPopupDeletMedecin(m)">
 									<span class="glyphicon glyphicon-trash"></span>
-								</button> -->
+								</button> 
 							</td>
 						</tr>
 					</tbody>
@@ -53,16 +56,20 @@
 						<div class="modal-body">
 						
 							<div class="form-group">
-								<label for="titre">Titre :</label> 
-								<input type="text" class="form-control" id="titre" placeholder="Titre" ng-model="medecin.titre" required="required">
-							</div>
-							<div class="form-group">
-								<label for="exampleInputName2">Nom :</label> 
-								<input type="text" class="form-control" id="nom" ng-model="medecin.nom" placeholder="Nom" required="required">
+								<label for="nom">Nom :</label> 
+								<input type="text" class="form-control" id="nom"  placeholder="Nom" ng-model="medecin.nom"  required="required">
 							</div>
 							<div class="form-group">
 								<label for="prenom">Prenom :</label> 
 								<input type="text" class="form-control" id="prenom" placeholder="Prenom" ng-model="medecin.prenom" required="required">
+							</div>
+							<div class="form-group">
+								<label for="tel">Telephone :</label> 
+								<input type="text" class="form-control" id="tel" placeholder="Telephone" ng-model="medecin.numTel" required="required">
+							</div>
+							<div class="form-group">
+								<label for="adresse">Adresse :</label> 
+								<input type="text" class="form-control" id="adresse" placeholder="Adresse de Cabinet" ng-model="medecin.adresse" required="required">
 							</div>
 
 						<div class="modal-footer">
@@ -90,20 +97,20 @@
 					<form name="updateMedecinForm">
 						<div class="modal-body">
 							<div class="form-group">
-								<label for="exampleInputName2">Titre :</label> 
-								<input readonly="readonly" type="text" class="form-control" id="titre"
-									placeholder="Titre" value="{{selectedMedecin.titre}}" ng-model="selectedMedecin.titre">
+								<label for="nom">Nom :</label> 
+								<input type="text" class="form-control" id="nom" placeholder="Nom" value="{{selectedMedecin.nom}}" ng-model="selectedMedecin.nom">
 							</div>
 							<div class="form-group">
-								<label for="exampleInputName2">Nom :</label> <input type="text"
-									class="form-control" id="nom" value="{{selectedMedecin.nom}}"
-									ng-model="selectedMedecin.nom" placeholder="Nom">
+								<label for="prenom">Prenom :</label> 
+								<input type="text" class="form-control" id="prenom" placeholder="Prenom" value="{{selectedMedecin.prenom}}" ng-model="selectedMedecin.prenom">
 							</div>
 							<div class="form-group">
-								<label for="exampleInputName2">Prenom :</label> <input
-									type="text" class="form-control" id="prenom"
-									placeholder="Prenom" value="{{selectedMedecin.prenom}}"
-									ng-model="selectedMedecin.prenom">
+								<label for="adresse">Adresse :</label> 
+								<input type="text" class="form-control" id="adresse" placeholder="Adresse" value="{{selectedMedecin.adresse}}" ng-model="selectedMedecin.adresse">
+							</div>
+							<div class="form-group">
+								<label for="tel">Telephone :</label> 
+								<input type="text" class="form-control" id="tel" placeholder="Telephone" value="{{selectedMedecin.numTel}}" ng-model="selectedMedecin.numTel">
 							</div>
 						</div>
 						<div class="modal-footer">
@@ -158,29 +165,29 @@
 		</div>
 
 
-
+-->
 		
 
-		delete dilog
-		<div class="modal fade" id="deleteClient" tabindex="-1" role="dialog"
+		<!-- delete medecin dialog -->
+		<div class="modal fade" id="deleteMedecin" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel" aria-hidden="true"
 			style="margin-top: 90px;">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h4 class="box-title">Confirmation</h4>
+						<h4 class="box-title">Confirmation </h4>
 					</div>
 					<div class="modal-body">
-						<h4 class="box-title">Voulez vous supprimer le client
+						<h4 class="box-title">Voulez vous supprimer le medecin
 							{{selectedClient.prenom}} {{selectedClient.nom}} ?</h4>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-primary btn-ok"
-							ng-click='deleteClient(selectedClient)'>Supprimer</button>
+							ng-click='deleteMedecin(selectedMedecin)'>Supprimer</button>
 						<button type="button" class="btn" data-dismiss="modal">Annuler</button>
 					</div>
 				</div>
 			</div> 
-		</div>-->
+		</div>
 
 </section>

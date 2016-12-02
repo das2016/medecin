@@ -11,12 +11,12 @@ import javax.persistence.MappedSuperclass;
 public class Personne extends AbstractEntity {
 	
 	private static final long serialVersionUID = 1L;
-	@Column(name = "TITRE")
-	private String titre;
 	@Column(name = "NOM")
 	private String nom;
 	@Column(name = "PRENOM")
 	private String prenom;
+	@Column(name = "ADRESSE")
+	private String adresse;
 
 	/*
 	 * Constructor
@@ -53,8 +53,8 @@ public class Personne extends AbstractEntity {
 	 * @param nom
 	 * @param prenom
 	 */
-	public Personne(String titre, String nom, String prenom) {
-		this.titre = titre;
+	public Personne(String adresse, String nom, String prenom) {
+		this.adresse = adresse;
 		this.nom = nom;
 		this.prenom = prenom;
 	}
@@ -66,15 +66,15 @@ public class Personne extends AbstractEntity {
 	/**
 	 * @return the titre
 	 */
-	public String getTitre() {
-		return titre;
+	public String getAdresse() {
+		return adresse;
 	}
 
 	/**
 	 * @param titre the titre to set
 	 */
-	public void setTitre(String titre) {
-		this.titre = titre;
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
 	}
 
 	/**

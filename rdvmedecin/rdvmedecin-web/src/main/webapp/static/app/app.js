@@ -8,12 +8,10 @@ App.config(
 			$stateProvider.state('home', {
 				url : '/home',
 				templateUrl : 'static/views/home.html'
-//				parent : 'main'
 			}).state('client', {
 				url : '/client',
 				templateUrl : 'static/views/secure/client.html',
-				controller : 'testController'
-//				parent : 'main'
+				controller : 'clientController'
 			}).state('medecin', {
 				url : '/medecin',
 				templateUrl : 'static/views/secure/medecin.html',

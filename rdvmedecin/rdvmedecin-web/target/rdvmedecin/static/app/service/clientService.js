@@ -1,5 +1,5 @@
 'use strict'
-App.service('clientService', [ '$http', '$q', function($http, $q) {
+App.service('clientService', [ '$http', '$q', 'CLIENT_URL', function($http, $q,CLIENT_URL) {
 
 	var clientService = {};
 	var CLIENT_PATH = 'client';
@@ -10,7 +10,7 @@ App.service('clientService', [ '$http', '$q', function($http, $q) {
 	 * @returns
 	 */
 	clientService.getAllClients = function() {
-		return $http.get("http://localhost:8080/rdvmedecin/client/clients").success(function(data) {
+		return $http.get(CLIENT_URL+"clients").success(function(data) {
 			console.info('Get all client service !!!!!!!!!!!!!!!!!!!!!!!')
 			return data;
 		}).error(function(data, status) {
@@ -28,7 +28,7 @@ App.service('clientService', [ '$http', '$q', function($http, $q) {
 	 * @returns
 	 */
 	clientService.addClient = function(client) {
-		return $http.post('http://localhost:8080/rdvmedecin/client/addClient',client).success(function(data) {
+		return $http.post(CLIENT_URL+'/addClient',client).success(function(data) {
 			console.info('client '+client.nom+' is successfully added');
 			return data;
 		}).error(function(data,status) {
@@ -46,7 +46,7 @@ App.service('clientService', [ '$http', '$q', function($http, $q) {
 	 * @returns
 	 */
 	clientService.deleteClient = function(client) {
-		return $http.delete('http://localhost:8080/rdvmedecin/client/deleteClient/'+client.id).success(function(data) {
+		return $http.delete(CLIENT_URL+'/deleteClient/'+client.id).success(function(data) {
 			return data;
 		}).error(function(data,status) {
 			console.info('error when deleting client ******************!!!')
@@ -60,7 +60,7 @@ App.service('clientService', [ '$http', '$q', function($http, $q) {
       * updateClient
       */
 	clientService.updateClient = function(client) {
-		return $http.put('http://localhost:8080/rdvmedecin/client/updateClient',client).success(function(data) {
+		return $http.put(CLIENT_URL+'/updateClient',client).success(function(data) {
 			console.info('client '+client.nom+' is successfully updated');
 			return data;
 		}).error(function(data,status) {

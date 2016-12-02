@@ -9,4 +9,5 @@ com\rdvmedecin\web\model\PostAjouterRv.class
 com\rdvmedecin\controller\ClientController.class
 com\rdvmedecin\controller\MedecinController.class
 com\rdvmedecin\controller\RdvMedecinController.class
+com\rdvmedecin\controller\RvController.class
 com\rdvmedecin\config\CORSFilter.class

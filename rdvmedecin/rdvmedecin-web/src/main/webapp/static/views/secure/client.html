@@ -4,25 +4,27 @@
 		<div class="row col-md-6">
 			<div class="alert alert-success" id="deleteClientMsg" role="alert" style="display: none;">Le Patient a été supprimé avec succès</div>
 			<div class="alert alert-danger" id="deleteClientMsgError" role="alert" style="display: none;">Un problème de suppression a été survenue</div>
+			<div class="alert alert-success" id="updateClientMsg" role="alert" style="display: none;">Le Patient a été modifié avec succès</div>
+			<div class="alert alert-danger" id="updateClientMsgError" role="alert" style="display: none;">Un problème de modification a été survenue</div>
 			
 	        <!--Table ded patients  -->
 			<div class="col-md-12">
 				<table class="table">
 					<thead>
 						<tr>
-							<th><span>Titre</span></th>
 							<th><span>Nom</span></th>
 							<th><span>Prenom</span></th>
 							<th><span>Date de Naissance</span></th>
+							<th><span>Adresse</span></th>
 							<th><span>Action</span></th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr ng-repeat="c in clients">
-							<td><span>{{c.titre}}</span></td>
 							<td>{{c.nom}}</td>
 							<td>{{c.prenom}}</td>
 							<td>{{c.dateNaissance | date:'dd-MM-yyyy'}}</td>
+							<td>{{c.adresse}}</td>
 							<td>
 								<button class="btn btn-primary btn-xs" tooltip="Modifier" tooltip-placement="left" data-title="Upadte" data-toggle="modal" data-target="#Update" 
 								ng-click="openPopupUpdateClient(c)">
@@ -49,11 +51,6 @@
 						<div class="modal-body">
 						
 							<div class="form-group">
-								<label for="exampleInputName2">Titre :</label> 
-								<input type="text" class="form-control" id="titre" placeholder="Titre" ng-model="client.titre" required="required">
-							</div>
-							
-							<div class="form-group">
 								<label for="exampleInputName2">Nom :</label> 
 								<input type="text" class="form-control" id="nom" ng-model="client.nom" placeholder="Nom" required="required">
 							</div>
@@ -62,17 +59,23 @@
 								<label for="exampleInputName2">Prenom :</label>
 								 <input type="text" class="form-control" id="prenom" placeholder="Prenom" ng-model="client.prenom" required="required">
 							</div>
+							
+							<div class="form-group">
+								<label for="adresse">Adresse :</label>
+								 <input type="text" class="form-control" id="adresse" placeholder="Adresse" ng-model="client.adresse" required="required">
+							</div>
 
 							<p class="input-group">
 								<label for="exampleInputName2">Date de Naissance :</label> 
 								<input type="text" class="form-control" datepicker-popup="dd-MM-yyyy" ng-model="client.dateNaissance" 
-								is-open="opened" placeholder="Date de Naissance" ng-required="true" close-text="Close" ng-click="open($event)"/>
+								is-open="addCalendarOpened" placeholder="Date de Naissance" ng-required="true" close-text="Close" ng-click="openCalendar($event,'addForm')"/>
 								 <span class="input-group-btn">
-									<button class="btn btn-default" style="margin-top: 58%" ng-click="open($event)">
+									<button class="btn btn-default" style="margin-top: 58%" ng-click="openCalendarForAdd($event,'addForm')">
 										<i class="glyphicon glyphicon-calendar"></i>
 									</button>
 								</span>
 							</p>
+							
 						</div>
 						
 						<div class="modal-footer">
@@ -141,12 +144,6 @@
 					<form name="registrForm">
 						<div class="modal-body">
 							<div class="form-group">
-								<label for="exampleInputName2">Titre :</label> <input
-									readonly="readonly" type="text" class="form-control" id="titre"
-									placeholder="Titre" value="{{selectedClient.titre}}"
-									ng-model="selectedClient.titre">
-							</div>
-							<div class="form-group">
 								<label for="exampleInputName2">Nom :</label> <input type="text"
 									class="form-control" id="nom" value="{{selectedClient.nom}}"
 									ng-model="selectedClient.nom" placeholder="Nom">
@@ -157,17 +154,24 @@
 									placeholder="Prenom" value="{{selectedClient.prenom}}"
 									ng-model="selectedClient.prenom">
 							</div>
+							<div class="form-group">
+								<label for="adresse">Adresse :</label> <input
+									 type="text" class="form-control" id="adresse"
+									placeholder="Adresse" value="{{selectedClient.adresse}}"
+									ng-model="selectedClient.adresse">
+							</div>
 							<p class="input-group">
 								<label for="exampleInputName2">Date de Naissance :</label> <input
 									type="text" class="form-control" datepicker-popup="dd-MM-yyyy"
-									ng-model="selectedClient.dateNaissance" value="{{selectedClient.dateNaissance}}" is-open="opened" placeholder="Date de Naissance"
-									ng-required="true" close-text="Close" ng-click="open($event)"/> <span
+									ng-model="selectedClient.dateNaissance" value="{{selectedClient.dateNaissance}}" is-open="updateCalendarOpened" placeholder="Date de Naissance"
+									ng-required="true" close-text="Close" ng-click="openCalendar($event,'updateForm')"/> <span
 									class="input-group-btn">
-									<button class="btn btn-default" style="margin-top: 58%" ng-click="open($event)">
+									<button class="btn btn-default" style="margin-top: 58%" ng-click="openCalendar($event,'updateForm')">
 										<i class="glyphicon glyphicon-calendar"></i>
 									</button>
 								</span>
 							</p>
+							
 						</div>
 						<div class="modal-footer">
 							<button type="submit" class="btn btn-primary btn-ok"

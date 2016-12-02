@@ -2,7 +2,7 @@
 App.controller('medecinController',['medecinService','$scope', function(medecinService,$scope) {
 	
 	$scope.medecins = [];
-	$scope.medecin = {id:null,nom:'',prenom:'',tittre:''};
+	$scope.medecin = {id:null,nom:'',prenom:'',adresse:'',numTel:''};
 	$scope.selectedMedecin = null;
 	
 	/**
@@ -45,6 +45,28 @@ App.controller('medecinController',['medecinService','$scope', function(medecinS
 	}
 	
 	/**
+	 * Open delete dialog
+	 */
+	$scope.openPopupDeletMedecin = function openPopupDeletMedecin(medecin) {
+		$scope.selectedMedecin = angular.copy(medecin)
+		$('#deleteMedecin').modal('show');
+		console.log('open delete dialog');
+	}
+	
+	/**
+	 * Delete medecin 
+	 */
+	$scope.deleteMedecin = function deleteMedecin(medecin){
+		medecinService.deleteMedecin(medecin).then(function(data) {
+			getAllMedecin();
+			$('#deleteMedecinMsg').show(0).delay(2500).hide(0);	
+			$('#deleteMedecin').modal('hide');
+		}, function(reason) {
+			$('#deleteMedecinMsgError').show(0).delay(2500).hide(0);	
+		});
+	}
+	
+	/**
 	 * Update Medecin
 	 */
 	$scope.updateMedecin = function updateMedecin(selectedMedecin) {
@@ -54,6 +76,7 @@ App.controller('medecinController',['medecinService','$scope', function(medecinS
 			$('#updateMedecintMsg').show(0).delay(2500).hide(0);
 			$('#updateMedecin').modal('hide');
 		}, function(reason) {
+			$('#updateMedecintMsgError').show(0).delay(2500).hide(0);
 			console.log('Error updating medecin Controller.........................'+reason);
 		});
 	}

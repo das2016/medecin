@@ -5,12 +5,7 @@ App.controller('testController', [ '$scope', 'clientService',function($scope, cl
 	$scope.client = {id:'',titre:'',nom:'',prenom:'',dateNaissance:''};
 	$scope.selectedClient = null;
 	$scope.clients = [];
-	
-//	/**
-//	 * init all client
-//	 */
-//	getAllClient();
-	
+	$scope.functionType = null;
 	/**
 	 * Open popup new Client
 	 */
@@ -104,9 +99,11 @@ App.controller('testController', [ '$scope', 'clientService',function($scope, cl
 		console.log("update -------------------- client : "+selectedClient.nom);
 		clientService.updateClient(selectedClient).success(function(data) {
 			$('#updateClient').modal('hide');
+			$('#updateClientMsg').show(0).delay(2500).hide(0);
 			getAllClient();
 			return data;
 		}).error(function(data, status) {
+			$('#updateClientMsgError').show(0).delay(2500).hide(0);
 			console.log('Error updating client Controller.........................');
 		});
 	}
@@ -123,22 +120,26 @@ App.controller('testController', [ '$scope', 'clientService',function($scope, cl
 		});
 	}
 	
+	/**
+	 * init all Client
+	 */
 	getAllClient();
 	
-	
-	$scope.open = function($event) {
+	/**
+	 * Open calendar in popup update
+	 */
+	$scope.openCalendar = function($event,type) {
 	    $event.preventDefault();
 	    $event.stopPropagation();
-
-	    $scope.opened = true;
+	    $scope.functionType = type;
+	    if($scope.functionType == 'addForm'){
+		    $scope.addCalendarOpened = true;
+		    }
+	    if($scope.functionType == 'updateForm'){
+	    $scope.updateCalendarOpened = true;
+	        } 
 	  };
-//
-//	  $scope.dateOptions = {
-//	    'year-format': "'yy'",
-//	    'starting-day': 1
-//	  };
+	  
 
-//	  $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'shortDate'];
-//	  $scope.format = $scope.formats[0];
 	
 		} ])
