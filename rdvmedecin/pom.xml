@@ -8,7 +8,7 @@
 	<name>rdv medecin</name>
 	<description>Angular project</description>
 	<properties>
-	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<springframework.version>4.3.0.RELEASE</springframework.version>
 		<hibernate.version>4.3.10.Final</hibernate.version>
 		<mysql.connector.version>5.1.31</mysql.connector.version>
@@ -38,7 +38,7 @@
 				<artifactId>rdvmedecin-web</artifactId>
 				<version>${rv-medecin-version}</version>
 			</dependency>
-					<dependency>
+			<dependency>
 				<groupId>com.rdvmedecin</groupId>
 				<artifactId>rdvmedecin-web-liferay</artifactId>
 				<version>${rv-medecin-version}</version>
@@ -51,6 +51,12 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 			<version>${springframework.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -87,7 +93,7 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
-		
+
 		<!-- spring Test -->
 		<dependency>
 			<groupId>org.springframework</groupId>
