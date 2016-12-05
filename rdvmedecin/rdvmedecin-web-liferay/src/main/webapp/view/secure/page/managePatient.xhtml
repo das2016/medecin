@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html
+xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+<h:form>
+<p:dataTable value="#{managePatientController.patients}" var="patient">
+<p:column headerText="Nom">
+#{patient.nom}
+</p:column>
+<p:column headerText="Prenom">
+#{patient.prenom}
+</p:column>
+<p:column headerText="Date de naissance">
+#{patient.dateNaissance}
+</p:column>
+</p:dataTable>
+</h:form>
+</h:body>
+</html>

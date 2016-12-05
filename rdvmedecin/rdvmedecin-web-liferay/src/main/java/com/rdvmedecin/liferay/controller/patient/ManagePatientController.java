@@ -29,7 +29,7 @@ public class ManagePatientController implements Serializable {
 	 * instance var
 	 */
 	private Client patient;
-	private List<Client> clients;
+	private List<Client> patients;
 	/**
 	 * autowiring mode
 	 */
@@ -48,7 +48,7 @@ public class ManagePatientController implements Serializable {
 	 */
 	public void init(){
 		patient = new Client();
-		clients = clientService.getAllClient();
+		patients = clientService.getAllClient();
 	}
 	/**
 	 * method for jsf action
@@ -84,15 +84,15 @@ public class ManagePatientController implements Serializable {
 	/**
 	 * @return the clients
 	 */
-	public List<Client> getClients() {
-		return clients;
+	public List<Client> getPatients() {
+		return patients;
 	}
 
 	/**
 	 * @param clients the clients to set
 	 */
-	public void setClients(List<Client> clients) {
-		this.clients = clients;
+	public void setPatients(List<Client> patients) {
+		this.patients = patients;
 	}
 
 }
