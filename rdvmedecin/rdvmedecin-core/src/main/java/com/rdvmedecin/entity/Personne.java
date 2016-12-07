@@ -53,10 +53,10 @@ public class Personne extends AbstractEntity {
 	 * @param nom
 	 * @param prenom
 	 */
-	public Personne(String adresse, String nom, String prenom) {
-		this.adresse = adresse;
+	public Personne(String nom, String prenom,String adresse) {
 		this.nom = nom;
 		this.prenom = prenom;
+		this.adresse = adresse;
 	}
 	
 	/*
@@ -104,6 +104,4 @@ public class Personne extends AbstractEntity {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-
-	
 }

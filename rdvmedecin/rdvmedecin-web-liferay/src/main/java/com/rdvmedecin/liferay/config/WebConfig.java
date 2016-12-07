@@ -25,7 +25,7 @@ public class WebConfig {
 	 * @return
 	 */
 	@Bean 
-	public org.springframework.beans.factory.config.CustomScopeConfigurer customScopeConfigurer(){
+	public static CustomScopeConfigurer customScopeConfigurer(){
     	CustomScopeConfigurer csc = new CustomScopeConfigurer();
     	csc.setScopes(new HashMap<String, Object>() {{
     		put("view", new ViewScope());

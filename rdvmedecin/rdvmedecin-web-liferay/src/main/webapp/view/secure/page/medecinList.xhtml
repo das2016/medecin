@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title></title>
+</h:head>
+<h:body>
+size = #{manageMedecinController.medecins.size()}
+<p:dataTable var="medecin" value="#{manageMedecinController.medecins}"
+			id="dataMedecin" lazy="true">
+			<p:column headerText="Nom">
+#{medecin.nom}
+</p:column>
+			<p:column headerText="Prenom">
+#{medecin.prenom}
+</p:column>
+			<p:column headerText="Telephone">
+#{medecin.numTel}
+</p:column>
+			<p:column headerText="Adresse">
+#{medecin.adresse}
+</p:column>
+		</p:dataTable>
+</h:body>
+</html>

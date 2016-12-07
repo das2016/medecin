@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "CLIENT")
 public class Client extends Personne {
-	
+
 	private static final long serialVersionUID = 1L;
 	@Column(name = "DATE_NAISSANCE")
 	private Date dateNaissance;
@@ -22,14 +22,13 @@ public class Client extends Personne {
 	/*
 	 * Constructor
 	 */
-	
+
 	/**
 	 * 
 	 */
 	public Client() {
 		super();
 	}
-
 
 	/**
 	 * @param titre
@@ -40,11 +39,10 @@ public class Client extends Personne {
 		super(titre, nom, prenom);
 	}
 
-
 	/**
 	 * @param dateNaissance
 	 */
-	public Client(String titre, String nom, String prenom,Date dateNaissance) {
+	public Client(String titre, String nom, String prenom, Date dateNaissance) {
 		super(titre, nom, prenom);
 		this.dateNaissance = dateNaissance;
 	}
@@ -60,12 +58,12 @@ public class Client extends Personne {
 		return dateNaissance;
 	}
 
-
 	/**
-	 * @param dateNaissance the dateNaissance to set
+	 * @param dateNaissance
+	 *            the dateNaissance to set
 	 */
 	public void setDateNaissance(Date dateNaissance) {
 		this.dateNaissance = dateNaissance;
 	}
-	
+
 }

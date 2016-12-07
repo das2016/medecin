@@ -9,29 +9,25 @@
 	<artifactId>rdvmedecin-web-liferay</artifactId>
 	<packaging>war</packaging>
 	<properties>
-<portlet-api.version>2.0</portlet-api.version>
-<servlet-api.version>2.5</servlet-api.version>
-</properties>
+		<portlet-api.version>2.0</portlet-api.version>
+		<servlet-api.version>2.5</servlet-api.version>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>com.rdvmedecin</groupId>
 			<artifactId>rdvmedecin-service</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.primefaces</groupId>
-			<artifactId>primefaces</artifactId>
-			<version>5.0</version>
-		</dependency>
-		<!-- JSF -->
-		<dependency>
-			<groupId>com.sun.faces</groupId>
-			<artifactId>jsf-api</artifactId>
-			<version>2.2.8-02</version>
-		</dependency>
+		<!-- Faces Implementation -->
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-impl</artifactId>
-			<version>2.2.8-02</version>
+			<version>2.2.4</version>
+		</dependency>
+		<!-- Faces Library -->
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<version>2.2.4</version>
 		</dependency>
 		<!-- Portlet -->
 		<dependency>
@@ -53,6 +49,20 @@
 			<version>1.2</version>
 			<scope>compile</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.primefaces/primefaces -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>5.3</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.inject/javax.inject -->
+		<!-- <dependency> <groupId>javax.inject</groupId> <artifactId>javax.inject</artifactId> 
+			<version>1</version> </dependency> -->
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<outputDirectory>src/main/webapp/WEB-INF/classes</outputDirectory>
@@ -61,8 +71,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.0</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 		</plugins>
