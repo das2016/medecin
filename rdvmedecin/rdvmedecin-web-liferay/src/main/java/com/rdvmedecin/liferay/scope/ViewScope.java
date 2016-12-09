@@ -17,7 +17,7 @@ import org.springframework.beans.factory.config.Scope;
 public class ViewScope implements Scope {
 
 	/**
-	 * 
+	 *  Get objects from the scope
 	 */
 	@Override
 	public Object get(String name, ObjectFactory<?> objectFactory) {
@@ -32,14 +32,7 @@ public class ViewScope implements Scope {
 	}
 
 	/**
-	 * 
-	 */
-	public void registerDestructionCallback(String name, Runnable callback) {
-		// Unsupported feature
-	}
-
-	/**
-	 * 
+	 *  Remove objects from the scope
 	 */
 	public Object remove(String name) {
 		FacesContext facesContext = FacesContext.getCurrentInstance();
@@ -47,19 +40,24 @@ public class ViewScope implements Scope {
 		return viewMap.remove(name);
 	}
 
+	
 	/**
-	 * 
+	 * Unsupported feature
+	 */
+	public void registerDestructionCallback(String name, Runnable callback) {
+	}
+
+	/**
+	 * Unsupported feature
 	 */
 	public Object resolveContextualObject(String key) {
-		// Unsupported feature
 		return null;
 	}
 
 	/**
-	 * 
+	 * Unsupported feature
 	 */
 	public String getConversationId() {
-		// Unsupported feature
 		return null;
 	}
 

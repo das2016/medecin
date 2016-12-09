@@ -129,17 +129,18 @@ App.controller('testController', [ '$scope', 'clientService',function($scope, cl
 	 * Open calendar in popup update
 	 */
 	$scope.openCalendar = function($event,type) {
+		console.log('Open Calendar')
 	    $event.preventDefault();
 	    $event.stopPropagation();
 	    $scope.functionType = type;
 	    if($scope.functionType == 'addForm'){
+	    	console.log('addForm opened calendar')
 		    $scope.addCalendarOpened = true;
 		    }
 	    if($scope.functionType == 'updateForm'){
+	    	console.log('updateForm opened calendar')
 	    $scope.updateCalendarOpened = true;
 	        } 
 	  };
-	  
-
 	
 		} ])

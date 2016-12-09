@@ -7,23 +7,27 @@
 <meta name="description" content="Angular client for RdvMedecins">
 <meta name="author" content="SKAN">
 <!-- le CSS -->
-<link href="static/bower_components/bootstrap/dist/css/bootstrap.min.css"
+<link
+	href="static/bower_components/bootstrap/dist/css/bootstrap.min.css"
 	rel="stylesheet" />
-<link href="static/bower_components/bootstrap/dist/css/bootstrap-theme.min.css"
+<link
+	href="static/bower_components/bootstrap/dist/css/bootstrap-theme.min.css"
 	rel="stylesheet" />
-<link href="static/bower_components/bootstrap-select/bootstrap-select.min.css"
+<link
+	href="static/bower_components/bootstrap-select/bootstrap-select.min.css"
 	rel="stylesheet" />
 <link href="static/bower_components/footable/css/footable.core.min.css"
 	rel="stylesheet" />
 <link href="static/assets/css/rdvmedecins.css" rel="stylesheet" />
 </head>
 <body>
-<div ng-include="'static/views/template/menu.html'"></div>
+	<div ng-include="'static/views/template/menu.html'"></div>
 	<div class="container" ui-view>
-	<center>
-	<img alt="loading" src="static/assets/images/waiting.gif" height="40%">
-	</center>
-	</div> 
+		<center>
+			<img alt="loading" src="static/assets/images/waiting.gif"
+				 style="margin-top: 10%">
+		</center>
+	</div>
 	<!-- Bootstrap core JavaScript ================================================== -->
 	<script type="text/javascript"
 		src="static/bower_components/jquery/dist/jquery.min.js"></script>
@@ -34,26 +38,29 @@
 	<script type="text/javascript"
 		src="static/bower_components/footable/dist/footable.min.js"></script>
 	<!-- angular js -->
-	 <!--  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script> -->
-		    <script src="http://code.angularjs.org/1.2.13/angular.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
-    
+	<!--  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script> -->
+	<script src="http://code.angularjs.org/1.2.13/angular.js"></script>
+	<script
+		src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+
 	<script type="text/javascript"
 		src="static/bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.min.js"></script>
-
-
+	
 
 
 	<!-- Angular App -->
 	<script src="static/app/app.js"></script>
 	<script src="static/app/constants.js"></script>
 	<!-- Service -->
-	<script  src="static/app/service/clientService.js"></script>
-	<script  src="static/app/service/medecinService.js"></script>
+	<script src="static/app/service/clientService.js"></script>
+	<script src="static/app/service/medecinService.js"></script>
+	<script src="static/app/service/rvService.js"></script>
 	<!-- Controller -->
-	<script  src="static/app/controller/testController.js"></script>
-	<script  src="static/app/controller/clientController.js"></script>
-	<script  src="static/app/controller/medecinController.js"></script>
+	<script src="static/app/controller/clientController.js"></script>
+	<script src="static/app/controller/medecinController.js"></script>
+	<script src="static/app/controller/rvController.js"></script>
+	<!-- Directive -->
+	<script src="static/app/directive/selectEnable.js"></script>
 
 </body>
 </html>

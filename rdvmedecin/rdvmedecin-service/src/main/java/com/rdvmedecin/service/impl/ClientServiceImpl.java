@@ -44,7 +44,7 @@ public class ClientServiceImpl implements ClientService {
 	 * Client)
 	 */
 	public Client addClient(Client client) {
-		LOGGER.debug("saveOrUpdate Client : " + client.getNom() + " "+ client.getPrenom());
+		LOGGER.debug("saveOrUpdate Client : " + client.getNom() + " " + client.getPrenom());
 		return (Client) this.clientDao.save(client);
 	}
 
@@ -56,7 +56,7 @@ public class ClientServiceImpl implements ClientService {
 	 * .Client)
 	 */
 	public void deleteClient(Client client) {
-		LOGGER.debug("Delete Client : " + client.getNom() + " "+ client.getPrenom());
+		LOGGER.debug("Delete Client : " + client.getNom() + " " + client.getPrenom());
 		this.clientDao.delete(client);
 	}
 

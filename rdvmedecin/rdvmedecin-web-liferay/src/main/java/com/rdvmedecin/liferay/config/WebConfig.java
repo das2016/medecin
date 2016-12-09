@@ -10,13 +10,14 @@ import org.springframework.context.annotation.Import;
 
 import com.rdvmedecin.config.ServiceConfig;
 import com.rdvmedecin.liferay.scope.ViewScope;
+
 /**
  * 
  * @author Skander.Bachouche
  *
  */
 @Configuration
-@ComponentScan(basePackages={"com.rdvmedecin"})
+@ComponentScan(basePackages = { "com.rdvmedecin" })
 @Import(value = { ServiceConfig.class })
 public class WebConfig {
 
@@ -24,12 +25,15 @@ public class WebConfig {
 	 * 
 	 * @return
 	 */
-	@Bean 
-	public static CustomScopeConfigurer customScopeConfigurer(){
-    	CustomScopeConfigurer csc = new CustomScopeConfigurer();
-    	csc.setScopes(new HashMap<String, Object>() {{
-    		put("view", new ViewScope());
-    	}});
-    	return csc;
-    }
+	@SuppressWarnings("serial")
+	@Bean
+	public static CustomScopeConfigurer customScopeConfigurer() {
+		CustomScopeConfigurer csc = new CustomScopeConfigurer();
+		csc.setScopes(new HashMap<String, Object>() {
+			{
+				put("view", new ViewScope());
+			}
+		});
+		return csc;
+	}
 }

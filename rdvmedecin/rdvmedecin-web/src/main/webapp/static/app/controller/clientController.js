@@ -1,5 +1,5 @@
 'use strict'
-App.controller('testController', [ '$scope', 'clientService',function($scope, clientService) {
+App.controller('clientController', [ '$scope', 'clientService',function($scope, clientService) {
 	console.info('Client Controller *****************************************');
 	var self = this;
 	$scope.client = {id:'',titre:'',nom:'',prenom:'',dateNaissance:''};
@@ -139,7 +139,5 @@ App.controller('testController', [ '$scope', 'clientService',function($scope, cl
 	    $scope.updateCalendarOpened = true;
 	        } 
 	  };
-	  
-
 	
 		} ])
