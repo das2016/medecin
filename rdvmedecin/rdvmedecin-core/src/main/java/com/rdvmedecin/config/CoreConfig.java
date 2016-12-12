@@ -14,11 +14,18 @@ import org.springframework.core.io.ClassPathResource;
 @PropertySource({"classpath:application.properties"})
 public class CoreConfig
 {
+	private static final String APPLICATION_PROPERTIES = "application.properties";
+
+	/**
+	 * Proprty placeholder used for retrieving the value's propertie
+	 * 
+	 * @return
+	 */
   @Bean
   public static PropertyPlaceholderConfigurer getPropertyPlaceholderConfigurer()
   {
     PropertyPlaceholderConfigurer ppc = new PropertyPlaceholderConfigurer();
-    ppc.setLocation(new ClassPathResource("application.properties"));
+    ppc.setLocation(new ClassPathResource(APPLICATION_PROPERTIES));
     ppc.setIgnoreUnresolvablePlaceholders(true);
     return ppc;
   }

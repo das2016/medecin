@@ -9,6 +9,7 @@ public class PostAjouterRv {
 
 	private String jour;
 	private int idCreneau;
+	private int idMedecin;
 	private int idClient;
 
 	/*
@@ -81,5 +82,7 @@ public class PostAjouterRv {
 	public void setIdClient(int idClient) {
 		this.idClient = idClient;
 	}
+	
+	
 
 }

@@ -28,7 +28,7 @@ App.service('clientService', [ '$http', '$q', 'CLIENT_URL', function($http, $q,C
 	 * @returns
 	 */
 	clientService.addClient = function(client) {
-		return $http.post(CLIENT_URL+'/addClient',client).success(function(data) {
+		return $http.post(CLIENT_URL+'addClient',client).success(function(data) {
 			console.info('client '+client.nom+' is successfully added');
 			return data;
 		}).error(function(data,status) {
@@ -46,7 +46,7 @@ App.service('clientService', [ '$http', '$q', 'CLIENT_URL', function($http, $q,C
 	 * @returns
 	 */
 	clientService.deleteClient = function(client) {
-		return $http.delete(CLIENT_URL+'/deleteClient/'+client.id).success(function(data) {
+		return $http.delete(CLIENT_URL+'deleteClient/'+client.id).success(function(data) {
 			return data;
 		}).error(function(data,status) {
 			console.info('error when deleting client ******************!!!')
@@ -56,11 +56,11 @@ App.service('clientService', [ '$http', '$q', 'CLIENT_URL', function($http, $q,C
 	}
 	
 	
-     /**
-      * updateClient
-      */
+    /**
+     * update Client
+     */
 	clientService.updateClient = function(client) {
-		return $http.put(CLIENT_URL+'/updateClient',client).success(function(data) {
+		return $http.put(CLIENT_URL+'updateClient',client).success(function(data) {
 			console.info('client '+client.nom+' is successfully updated');
 			return data;
 		}).error(function(data,status) {
@@ -70,14 +70,6 @@ App.service('clientService', [ '$http', '$q', 'CLIENT_URL', function($http, $q,C
 			});
 	}
 
-// clientService.getAll = function() {
-// return $http.get(API_PATH + '/clients').then(function(response) {
-// return response.data;
-// }, function(errResponse) {
-// console.error('Error while fetching clients');
-// return $q.reject(errResponse);
-// });
-// }
 	
 return clientService;
 	

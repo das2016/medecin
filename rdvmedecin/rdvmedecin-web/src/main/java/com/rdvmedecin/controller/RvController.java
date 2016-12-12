@@ -12,32 +12,64 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.rdvmedecin.entity.Client;
+import com.rdvmedecin.entity.Creneau;
 import com.rdvmedecin.entity.Rv;
+import com.rdvmedecin.model.PostAjoutRv;
+import com.rdvmedecin.service.CreneauService;
+import com.rdvmedecin.service.MedecinService;
 import com.rdvmedecin.service.RvService;
+import com.rdvmedecin.web.util.DateUtils;
 
 /**
  * 
  * @author Skander.Bachouche
  *
  */
-@RestController("/rv")
+@RequestMapping("/rv")
+@RestController
 public class RvController {
 
 	private static Logger LOGGER = LoggerFactory.getLogger(RvController.class);
 
 	@Autowired
 	RvService rvService;
+	@Autowired
+	MedecinService medecinService;
+	@Autowired
+	CreneauService creneauService;
+
+//	/**
+//	 * Add new rv
+//	 * 
+//	 * @param rv
+//	 */
+//	@RequestMapping(value = "/addRv", method = RequestMethod.POST)
+//	public @ResponseBody void ajouterRv(@RequestBody Rv rv) {
+//		try {
+//			if (rv != null) {
+//				rvService.addRendezVous(rv);
+//			} else {
+//				throw new Exception("Cannot add a null rv");
+//			}
+//		} catch (Exception e) {
+//			LOGGER.error(" " + e.getMessage());
+//		}
+//	}
 
 	/**
 	 * Add new rv
 	 * 
 	 * @param rv
 	 */
-	@RequestMapping(value = "/addRv", method = RequestMethod.POST)
-	public @ResponseBody void ajouterRv(@RequestBody Rv rv) {
+	@RequestMapping(value = "/addRv", method = RequestMethod.POST,produces = { "application/json" })
+	public @ResponseBody void ajouterRv(@RequestBody PostAjoutRv rv) {
 		try {
 			if (rv != null) {
-				rvService.addRendezVous(rv);
+				Creneau creneau = new Creneau();
+				creneau.setMedecin(rv.getMedecin());
+				Client client = rv.getClient();
+				rvService.addRendezVous(DateUtils.StringToDate(rv.getJour()),creneau,client);
 			} else {
 				throw new Exception("Cannot add a null rv");
 			}
@@ -45,7 +77,7 @@ public class RvController {
 			LOGGER.error(" " + e.getMessage());
 		}
 	}
-
+	
 	/**
 	 * Get all rv
 	 * 
@@ -64,7 +96,7 @@ public class RvController {
 	@RequestMapping(value = "/updateRv", method = RequestMethod.PUT)
 	public @ResponseBody void modifierRv(@RequestBody Rv rv) {
 		// same here saveOrUpdate
-		ajouterRv(rv);
+//		ajouterRv(rv);
 	}
 
 	/**

@@ -1,8 +1,8 @@
 'use strict'
-App.controller('testController', [ '$scope', 'clientService',function($scope, clientService) {
+App.controller('clientController', [ '$scope', 'clientService',function($scope, clientService) {
 	console.info('Client Controller *****************************************');
 	var self = this;
-	$scope.client = {id:'',titre:'',nom:'',prenom:'',dateNaissance:''};
+	$scope.client = {id:'',nom:'',prenom:'',dateNaissance:''};
 	$scope.selectedClient = null;
 	$scope.clients = [];
 	$scope.functionType = null;
@@ -129,16 +129,13 @@ App.controller('testController', [ '$scope', 'clientService',function($scope, cl
 	 * Open calendar in popup update
 	 */
 	$scope.openCalendar = function($event,type) {
-		console.log('Open Calendar')
 	    $event.preventDefault();
 	    $event.stopPropagation();
 	    $scope.functionType = type;
 	    if($scope.functionType == 'addForm'){
-	    	console.log('addForm opened calendar')
 		    $scope.addCalendarOpened = true;
 		    }
 	    if($scope.functionType == 'updateForm'){
-	    	console.log('updateForm opened calendar')
 	    $scope.updateCalendarOpened = true;
 	        } 
 	  };

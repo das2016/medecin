@@ -1,5 +1,6 @@
 com\rdvmedecin\web\model\PostSupprimerRv.class
 com\rdvmedecin\controller\IndexController.class
+com\rdvmedecin\web\util\DateUtils.class
 com\rdvmedecin\config\WebConfigContext.class
 com\rdvmedecin\config\WebConfigInitializer.class
 com\rdvmedecin\web\model\ApplicationModel.class

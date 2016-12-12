@@ -1,34 +1,83 @@
-<section class="container">
-	<h1>Rendez Vous</h1>
-	client : <select id="medecins" data-style="btn btn-primary"
-		selectpicker ng-model="selectedClient">
+
+<!--	client : 
+	
+	<select id="clients" ng-model="selectedClient" data-size="10">
 		<option ng-repeat="client in clients" value="{{client.id}}">{{client.nom}} - {{client.prenom}}</option>
 	</select> 
+	 <label for="clients"> Multiple select: </label><br>: {{selectedClient.nom}}
 	
 	
 	
 	Medecin : 
 	
-	
-	<select  class="selectpicker" select-enable=""
-		 ng-model="selectedMedecin"
-		ng-click="showSelctedMedecin()">
-		<option ng-repeat="m in medecins" value="{{m.id}}">{{m.nom}} {{m.prenom}}</option>
+	<select class="selectpicker" selectpicker  ng-model="selectedMedecin" select-enable=""  ng-if="medecins" data-live-search="true" title="Selectionner" data-size="5">
+		<option ng-repeat="m in medecins" value="{{m.id}}">{{m.nom}}</option>
 	</select> 
 	
+	Medecin selectionné : {{selectedMedecin.id}}
 	
-	
-	
-	
-	<select selectpicker class="selectpicker">
-		<option value="">Select one</option>
-		<option>Mustard</option>
-		<option>Ketchup</option>
-		<option>Relish</option>
-	</select>
+	  -->
+<section class="container">
+	<h1>Rendez Vous</h1>
 
-	<script>
-	 $('.selectpicker').selectpicker();
-	</script>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Nouveau Rv</div>
+				<form name="newRvForm" style="margin-top: 1%; margin-left: 1%; margin-right: 1%">
+					<div class="form-group">
+						<label for="patient">Patient :</label> <select id="clients"
+							class="form-control" ng-model="selectedClient">
+							<option ng-repeat="client in clients" value="{{client}}">{{client.nom}} - {{client.prenom}}</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="medecin">Medecin :</label> <select id="medecins"
+							class="form-control" ng-model="selectedMedecin">
+							<option ng-repeat="m in medecins" value="{{m}}">{{m.nom}} - {{m.prenom}}</option>
+						</select>
+					</div>
+					<p class="input-group">
+						<label for="Date de Rv">Date de Rv :</label> <input type="text"
+							class="form-control" datepicker-popup="dd-MM-yyyy"
+							ng-model="rv.jour" is-open="calendarOpened"
+							placeholder="Date de Rv" ng-required="true" close-text="Close"
+							ng-click="openCalendar($event)" /> <span class="input-group-btn">
+							<button class="btn btn-default" style="margin-top: 58%"
+								ng-click="openCalendar($event)">
+								<i class="glyphicon glyphicon-calendar"></i>
+							</button>
+						</span>
+					</p>
+					<div class="form-group">
+						<label for="hDebut">Heure de debut :</label> <input type="text"
+							class="form-control" id="hDebut" placeholder="Heure de debut"
+							ng-model="rv.hDebut" required="required">
+					</div>
+					<div class="form-group">
+						<label for="mDebut">Minute de debut :</label> <input type="text"
+							class="form-control" id="mDebut" placeholder="Minute de debut"
+							ng-model="rv.mDebut" required="required">
+					</div>
+					<div class="form-group">
+						<label for="hFin">Heure du fin :</label> <input type="text"
+							class="form-control" id="hFin" placeholder="Heure du fin"
+							ng-model="rv.hFin" required="required">
+					</div>
+					<div class="form-group">
+						<label for="mFin">Minute du fin :</label> <input type="text"
+							class="form-control" id="mFin" placeholder="Minute du fin"
+							ng-model="rv.mFin" required="required">
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary pull-right"
+							id="btnNewRv" ng-click="addNewRv(rv)">
+							<span class="glyphicon glyphicon-check" aria-hidden="true"></span>Valider
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 
 </section>

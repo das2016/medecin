@@ -3,6 +3,7 @@ var App = angular.module('rdvmedecins', [ 'ui.router', 'ui.bootstrap' ]);
 
 App.config(function($stateProvider, $urlRouterProvider, $locationProvider,
 		$httpProvider) {
+	$urlRouterProvider.otherwise('/');
 	$stateProvider.state('home', {
 		url : '/home',
 		templateUrl : 'static/views/home.html'
@@ -19,5 +20,4 @@ App.config(function($stateProvider, $urlRouterProvider, $locationProvider,
 		templateUrl : 'static/views/secure/rv.html',
 		controller : 'rvController'
 	});
-	$urlRouterProvider.otherwise('/');
 });

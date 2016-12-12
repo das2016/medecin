@@ -11,7 +11,9 @@ import com.rdvmedecin.entity.Client;
 import com.rdvmedecin.entity.Creneau;
 import com.rdvmedecin.entity.Rv;
 import com.rdvmedecin.service.RvService;
+import com.rdvmedecin.springdatajpa.SpringDataCreneauDao;
 import com.rdvmedecin.springdatajpa.SpringDataRvDao;
+
 /**
  * 
  * @author SKAN
@@ -23,6 +25,8 @@ public class RvServiceImpl implements RvService {
 
 	@Autowired
 	private SpringDataRvDao rvDao;
+	@Autowired
+	private SpringDataCreneauDao creneauDao;
 
 	/*
 	 * (non-Javadoc)
@@ -71,7 +75,12 @@ public class RvServiceImpl implements RvService {
 	 * com.rdvmedecin.entity.Creneau, com.rdvmedecin.entity.Client)
 	 */
 	public Rv addRendezVous(Date jour, Creneau creneau, Client client) {
-		return (Rv) this.rvDao.save(new Rv(jour, client, creneau));
+		if (creneau != null && client != null) {
+			creneauDao.save(creneau);
+			return (Rv) this.rvDao.save(new Rv(jour, client, creneau));
+		} else {
+			return null;
+		}
 	}
 
 	/*

@@ -14,7 +14,7 @@
 						<tr>
 							<th><span>Nom</span></th>
 							<th><span>Prenom</span></th>
-							<th><span>Date de Naissance</span></th>
+							<th><span>Naissance</span></th>
 							<th><span>Adresse</span></th>
 							<th><span>Action</span></th>
 						</tr>
@@ -70,7 +70,7 @@
 								<input type="text" class="form-control" datepicker-popup="dd-MM-yyyy" ng-model="client.dateNaissance" 
 								is-open="addCalendarOpened" placeholder="Date de Naissance" ng-required="true" close-text="Close" ng-click="openCalendar($event,'addForm')"/>
 								 <span class="input-group-btn">
-									<button class="btn btn-default" style="margin-top: 58%" ng-click="openCalendarForAdd($event,'addForm')">
+									<button class="btn btn-default" style="margin-top: 58%" ng-click="openCalendar($event,'addForm')">
 										<i class="glyphicon glyphicon-calendar"></i>
 									</button>
 								</span>

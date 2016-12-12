@@ -1,4 +1,4 @@
-App.directive("selectEnable", [ "$timeout", function($timeout) {
+App.directive('selectEnable', [ '$timeout', function($timeout) {
 	return {
 		link : function(scope, element, attrs) {
 			$timeout(function() {
