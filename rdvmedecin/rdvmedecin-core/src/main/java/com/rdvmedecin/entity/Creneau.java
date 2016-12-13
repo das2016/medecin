@@ -25,8 +25,8 @@ public class Creneau extends AbstractEntity {
 	private int hFin;
 	@Column(name = "M_FIN")
 	private int mFin;
-	@ManyToOne(fetch = FetchType.LAZY, cascade={CascadeType.ALL})
-	@JoinColumn(name = "ID_MEDECIN",nullable=true)
+	@ManyToOne(fetch = FetchType.LAZY, cascade={CascadeType.MERGE})
+	@JoinColumn(name = "ID_MEDECIN",nullable=false)
 	private Medecin medecin;
 
 	/*

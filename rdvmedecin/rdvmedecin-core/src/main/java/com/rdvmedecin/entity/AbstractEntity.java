@@ -33,6 +33,7 @@ public class AbstractEntity implements Serializable {
 		super();
 	}
 	
+	
 	/**
 	 * @param id
 	 * @param version

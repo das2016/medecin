@@ -34,7 +34,7 @@ App.factory('rvService', [ '$http', '$q', 'RV_URL',
 			 */
 			function addRv(rv){
 				var deferred =$q.defer();
-				$http.post(RV_URL+'addRv',rv).then(function(response) {
+				$http.post(RV_URL+'addRv', rv).then(function(response) {
 					deferred.resolve(response.data);
 				}, function(errResponse) {
 					console.log("Error while adding medecin");

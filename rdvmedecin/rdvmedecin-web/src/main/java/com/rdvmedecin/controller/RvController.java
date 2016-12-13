@@ -1,5 +1,6 @@
 package com.rdvmedecin.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -69,7 +70,10 @@ public class RvController {
 				Creneau creneau = new Creneau();
 				creneau.setMedecin(rv.getMedecin());
 				Client client = rv.getClient();
-				rvService.addRendezVous(DateUtils.StringToDate(rv.getJour()),creneau,client);
+				System.err.println(" The client is : "+client.getNom());
+				System.err.println(" Heure Debut from json "+rv.gethDebut());
+				System.err.println(" Date from json"+rv.getJour());
+				rvService.addRendezVous(new Date(),creneau,client);
 			} else {
 				throw new Exception("Cannot add a null rv");
 			}

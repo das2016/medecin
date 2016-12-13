@@ -2,6 +2,7 @@ package com.rdvmedecin.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -22,10 +23,10 @@ public class Rv extends AbstractEntity {
 	private static final long serialVersionUID = 1L;
 	@Temporal(TemporalType.DATE)
 	private Date jour;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE})
 	@JoinColumn(name = "ID_CLIENT", nullable = true)
 	private Client client;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE})
 	@JoinColumn(name = "ID_CRENEAU", nullable = true)
 	private Creneau creneau;
 	// @Column(name = "ID_CLIENT", insertable = false)

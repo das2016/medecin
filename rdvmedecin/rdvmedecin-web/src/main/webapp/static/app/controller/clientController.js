@@ -2,7 +2,7 @@
 App.controller('clientController', [ '$scope', 'clientService',function($scope, clientService) {
 	console.info('Client Controller *****************************************');
 	var self = this;
-	$scope.client = {id:'',nom:'',prenom:'',dateNaissance:''};
+	$scope.client = {id:'',nom:'',prenom:'',adresse:'',dateNaissance:''};
 	$scope.selectedClient = null;
 	$scope.clients = [];
 	$scope.functionType = null;

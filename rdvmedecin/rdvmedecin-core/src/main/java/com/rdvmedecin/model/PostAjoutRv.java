@@ -2,6 +2,8 @@ package com.rdvmedecin.model;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.rdvmedecin.entity.Client;
 import com.rdvmedecin.entity.Medecin;
 
@@ -21,8 +23,8 @@ public class PostAjoutRv implements Serializable {
 	private int hFin;
 	private int mDebut;
 	private int mFin;
-	private Medecin medecin;
 	private Client client;
+	private Medecin medecin;
 
 	/*
 	 * Constructor
@@ -44,7 +46,8 @@ public class PostAjoutRv implements Serializable {
 	 * @param medecin
 	 * @param client
 	 */
-	public PostAjoutRv(String jour, int hDebut, int hFin, int mDebut, int mFin, Medecin medecin, Client client) {
+	@JsonCreator
+	public PostAjoutRv(@JsonProperty("jour")String jour,@JsonProperty("hDebut")int hDebut, @JsonProperty("hFin")int hFin, @JsonProperty("mDebut")int mDebut, @JsonProperty("mFin")int mFin,@JsonProperty("client") Client client,@JsonProperty("medecin")Medecin medecin) {
 		super();
 		this.jour = jour;
 		this.hDebut = hDebut;

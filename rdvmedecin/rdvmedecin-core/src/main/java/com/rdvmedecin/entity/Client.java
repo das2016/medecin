@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -33,23 +34,6 @@ public class Client extends Personne {
 	 */
 	public Client() {
 	}
-	
-	 public Client(String stringJSON){
-		 ObjectMapper mapper = new ObjectMapper();
-		 try {
-			Client client = mapper.readValue(stringJSON, this.getClass());
-		} catch (JsonParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (JsonMappingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	      
-	 } 
 
 	/**
 	 * @param titre
@@ -59,7 +43,6 @@ public class Client extends Personne {
 	public Client(String adresse, String nom, String prenom) {
 		super(adresse, nom, prenom);
 	}
-	
 
 	/**
 	 * @param dateNaissance
@@ -72,9 +55,26 @@ public class Client extends Personne {
 	/**
 	 * @param dateNaissance
 	 */
-	public Client(String titre, String nom, String prenom, Date dateNaissance) {
-		super(titre, nom, prenom);
+	public Client(String nom, String prenom, String adresse, Date dateNaissance) {
+		super(nom, prenom, adresse);
 		this.dateNaissance = dateNaissance;
+	}
+
+	/**
+	 * Json Create Method
+	 * 
+	 * @param jsonString
+	 * @return
+	 * @throws JsonParseException
+	 * @throws JsonMappingException
+	 * @throws IOException
+	 */
+	@JsonCreator
+	public static Client Create(String jsonString) throws JsonParseException, JsonMappingException, IOException {
+		ObjectMapper mapper = new ObjectMapper();
+		Client client = null;
+		client = mapper.readValue(jsonString, Client.class);
+		return client;
 	}
 
 	/*

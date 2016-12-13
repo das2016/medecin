@@ -2,7 +2,9 @@
 App.controller('rvController', [ '$scope', 'rvService' ,'clientService','medecinService',function($scope, rvService,clientService,medecinService) {
 	console.log("Rv Controller .....................");
 	$scope.rvs = [];
-	$scope.rv = {jour:'',hDebut:'',hFin:'',mDebut:'',mFin:'',client:null,medecin:null};
+	var client = {id:'',nom:'',prenom:'',adresse:'',dateNaissance:''};
+	var medecin = {id:'',nom:'',prenom:'',adresse:''};
+	$scope.rv = {jour:'',hDebut:'',hFin:'',mDebut:'',mFin:'',client:'',medecin:''};
 	$scope.clients = [];
 	$scope.medecins=[];
 	$scope.selectedClient = {id:'',nom:'',prenom:'',adresse:'',dateNaissance:''};
@@ -62,17 +64,6 @@ App.controller('rvController', [ '$scope', 'rvService' ,'clientService','medecin
 			console.log('Error when creating new Rv.........................');
 		});
 	}
-	
-	
-	 function copyObjToObj(source, destination) {
-	        if(!angular.equals(source,destination)){
-	            if (!!destination) 
-	                angular.copy(source, destination);
-	            else 
-	                destination = angular.copy(source);
-	        }
-	        return destination;
-	    }
 	
 	
 	/**
