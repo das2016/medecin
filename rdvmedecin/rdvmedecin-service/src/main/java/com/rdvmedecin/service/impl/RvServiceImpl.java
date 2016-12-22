@@ -3,6 +3,7 @@ package com.rdvmedecin.service.impl;
 import java.util.Date;
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,7 +21,7 @@ import com.rdvmedecin.springdatajpa.SpringDataRvDao;
  *
  */
 @Service("rvService")
-@Transactional
+@Transactional(readOnly=true)
 public class RvServiceImpl implements RvService {
 
 	@Autowired
@@ -43,6 +44,7 @@ public class RvServiceImpl implements RvService {
 	 * @see
 	 * com.rdvmedecin.service.RvService#addRendezVous(com.rdvmedecin.entity.Rv)
 	 */
+	@Transactional
 	public Rv addRendezVous(Rv rv) {
 		return (Rv) this.rvDao.save(rv);
 	}
@@ -54,6 +56,7 @@ public class RvServiceImpl implements RvService {
 	 * com.rdvmedecin.service.RvService#deleteRendezVous(com.rdvmedecin.entity
 	 * .Rv)
 	 */
+	@Transactional
 	public void deleteRendezVous(Rv rv) {
 		this.rvDao.delete(rv);
 	}
@@ -74,6 +77,7 @@ public class RvServiceImpl implements RvService {
 	 * @see com.rdvmedecin.service.RvService#addRendezVous(java.util.Date,
 	 * com.rdvmedecin.entity.Creneau, com.rdvmedecin.entity.Client)
 	 */
+	@Transactional
 	public Rv addRendezVous(Date jour, Creneau creneau, Client client) {
 		if (creneau != null && client != null) {
 			creneauDao.save(creneau);

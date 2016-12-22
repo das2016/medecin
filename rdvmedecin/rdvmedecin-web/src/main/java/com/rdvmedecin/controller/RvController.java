@@ -20,7 +20,6 @@ import com.rdvmedecin.model.PostAjoutRv;
 import com.rdvmedecin.service.CreneauService;
 import com.rdvmedecin.service.MedecinService;
 import com.rdvmedecin.service.RvService;
-import com.rdvmedecin.web.util.DateUtils;
 
 /**
  * 
@@ -40,40 +39,37 @@ public class RvController {
 	@Autowired
 	CreneauService creneauService;
 
-//	/**
-//	 * Add new rv
-//	 * 
-//	 * @param rv
-//	 */
-//	@RequestMapping(value = "/addRv", method = RequestMethod.POST)
-//	public @ResponseBody void ajouterRv(@RequestBody Rv rv) {
-//		try {
-//			if (rv != null) {
-//				rvService.addRendezVous(rv);
-//			} else {
-//				throw new Exception("Cannot add a null rv");
-//			}
-//		} catch (Exception e) {
-//			LOGGER.error(" " + e.getMessage());
-//		}
-//	}
+	// /**
+	// * Add new rv
+	// *
+	// * @param rv
+	// */
+	// @RequestMapping(value = "/addRv", method = RequestMethod.POST)
+	// public @ResponseBody void ajouterRv(@RequestBody Rv rv) {
+	// try {
+	// if (rv != null) {
+	// rvService.addRendezVous(rv);
+	// } else {
+	// throw new Exception("Cannot add a null rv");
+	// }
+	// } catch (Exception e) {
+	// LOGGER.error(" " + e.getMessage());
+	// }
+	// }
 
 	/**
 	 * Add new rv
 	 * 
 	 * @param rv
 	 */
-	@RequestMapping(value = "/addRv", method = RequestMethod.POST,produces = { "application/json" })
+	@RequestMapping(value = "/addRv", method = RequestMethod.POST, produces = { "application/json" })
 	public @ResponseBody void ajouterRv(@RequestBody PostAjoutRv rv) {
 		try {
 			if (rv != null) {
-				Creneau creneau = new Creneau();
-				creneau.setMedecin(rv.getMedecin());
+				Creneau creneau = new Creneau(rv.gethDebut(), rv.getmDebut(), rv.gethFin(), rv.getmFin(),
+						rv.getMedecin());
 				Client client = rv.getClient();
-				System.err.println(" The client is : "+client.getNom());
-				System.err.println(" Heure Debut from json "+rv.gethDebut());
-				System.err.println(" Date from json"+rv.getJour());
-				rvService.addRendezVous(new Date(),creneau,client);
+				rvService.addRendezVous(new Date(), creneau, client);
 			} else {
 				throw new Exception("Cannot add a null rv");
 			}
@@ -81,7 +77,7 @@ public class RvController {
 			LOGGER.error(" " + e.getMessage());
 		}
 	}
-	
+
 	/**
 	 * Get all rv
 	 * 
@@ -95,16 +91,18 @@ public class RvController {
 
 	/**
 	 * update rv
+	 * 
 	 * @param rv
 	 */
 	@RequestMapping(value = "/updateRv", method = RequestMethod.PUT)
 	public @ResponseBody void modifierRv(@RequestBody Rv rv) {
 		// same here saveOrUpdate
-//		ajouterRv(rv);
+		// ajouterRv(rv);
 	}
 
 	/**
-	 * delete rv 
+	 * delete rv
+	 * 
 	 * @param id
 	 */
 	@RequestMapping(value = "/deleteRv/{id}", method = RequestMethod.DELETE)
