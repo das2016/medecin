@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+</h:head>
+<h:body>
+	<h:form>
+		<p:growl id="msgs" showDetail="true" />
+
+		<p:panel header="Select a Location" style="margin-bottom:10px;">
+			<h:panelGrid columns="3" cellpadding="5" id="p">
+				<h:outputText value="test : " />
+				<p:inputText id="price" value="#{manageMedecinController.price}" validatorMessage="champ de caractères [a-z]">
+					<f:ajax render="msg" event="keyup" listener="#{manageMedecinController.priceListener}"></f:ajax>
+				</p:inputText>
+				
+				<h:inputText id="test" value="#{manageMedecinController.price}" valueChangeListener="#{manageMedecinController.priceListener}">
+                  <f:ajax event="change" render="msg"/>
+                 </h:inputText>
+				<p:message for="test" id="msg"/>
+			</h:panelGrid>
+			<p:separator />
+		</p:panel>
+	</h:form>
+</h:body>
+</html>

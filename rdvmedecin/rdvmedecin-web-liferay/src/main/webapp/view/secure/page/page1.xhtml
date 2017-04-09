@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title></title>
+</h:head>
+<h:body>
+	<h:form id="form">
+				<p:commandButton actionListener="#{manageMedecinController.next}" value="next" update="g"/>
+	 <h:panelGroup id="group">
+	 <h:panelGroup  rendered="#{manageMedecinController.price ne null}">
+				<h:outputText value="#{manageMedecinController.nextPage}" />
+				<h:outputText value="test : " />
+				<p:inputText id="price" value="#{manageMedecinController.price}"
+					validatorMessage="champ de caractères [a-z]">
+					<f:ajax render="msg" event="keyup"
+						listener="#{manageMedecinController.priceListener}"></f:ajax>
+				</p:inputText>
+				<p:messages id="msg" />
+				</h:panelGroup>
+				</h:panelGroup>
+				</h:form>
+</h:body>
+</html>

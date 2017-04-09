@@ -7,21 +7,35 @@
 	<title></title>
 </h:head>
 <h:body>
-size = #{manageMedecinController.medecins.size()}
-<p:dataTable var="medecin" value="#{manageMedecinController.medecins}"
-			id="dataMedecin" lazy="true">
-			<p:column headerText="Nom">
-#{medecin.nom}
-</p:column>
-			<p:column headerText="Prenom">
-#{medecin.prenom}
-</p:column>
-			<p:column headerText="Telephone">
-#{medecin.numTel}
-</p:column>
-			<p:column headerText="Adresse">
-#{medecin.adresse}
-</p:column>
-		</p:dataTable>
+	<h:form id="form">
+		<p:tabView>
+			<p:tab title="tab1">
+			</p:tab>
+			<p:tab title="tab2" id="tab">
+				 <h:panelGroup id="group" rendered="#{manageMedecinController.price eq null}">
+				<p:selectOneMenu value="#{manageMedecinController.medecin}">
+				<f:selectItem itemDisabled="Select" itemValue="" />
+					<f:selectItems value="#{manageMedecinController.medecinItems}" />
+					<p:ajax listener="#{manageMedecinController.medecinListener}"
+						process="@this" partialSubmit="true" update="test" />
+				</p:selectOneMenu>
+				<p:selectOneMenu id="test" value="#{manageMedecinController.client}">
+					<f:selectItems value="#{manageMedecinController.clientItems}" />
+				</p:selectOneMenu>
+				</h:panelGroup>
+				<p:commandButton actionListener="#{manageMedecinController.next}" value="next" update="@form"/>
+				 <h:panelGroup id="g" rendered="#{manageMedecinController.price ne null}">
+				<h:outputText value="#{manageMedecinController.nextPage}" />
+				<h:outputText value="test : " />
+				<p:inputText id="price" value="#{manageMedecinController.price}"
+					validatorMessage="champ de caractères [a-z]">
+					<f:ajax render="msg" event="keyup"
+						listener="#{manageMedecinController.priceListener}"></f:ajax>
+				</p:inputText>
+				<p:messages id="msg" />
+				</h:panelGroup>
+			</p:tab>
+		</p:tabView>
+	</h:form>
 </h:body>
 </html>
